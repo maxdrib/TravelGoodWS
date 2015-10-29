@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/LameDuckWS/java/lameduck_ws" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="lameduck_ws" targetNamespace="http://j2ee.netbeans.org/wsdl/LameDuckWS/java/lameduck_ws">
+    <types>
+        <xsd:schema xmlns:tns="http://j2ee.netbeans.org/wsdl/LameDuckWS/java/lameduck_ws" targetNamespace="http://j2ee.netbeans.org/wsdl/LameDuckWS/java/lameduck_ws">
+            <xsd:complexType name="flight">
+                <xsd:sequence>
+                    <xsd:element name="origin" type="xsd:string"/>
+                    <xsd:element name="destination" type="xsd:string"/>
+                    <xsd:element name="departureDateTime" type="xsd:date"/>
+                    <xsd:element name="arrivalDateTime" type="xsd:date"/>
+                    <xsd:element name="carrier" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="fligthInformation">
+                <xsd:sequence>
+                    <xsd:element name="flight" type="tns:flight"/>
+                    <xsd:element name="bookingNumber" type="xsd:string"/>
+                    <xsd:element name="price" type="xsd:float"/>
+                    <xsd:element name="airlineReservationService" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="flightInformationList">
+                <xsd:sequence>
+                    <xsd:element name="newElement" type="tns:fligthInformation" maxOccurs="unbounded" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getFlightsResponse" type="tns:flightInformationList"/>
+            <xsd:element name="getFligthsRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="origin" type="xsd:string"/>
+                        <xsd:element name="destination" type="xsd:string"/>
+                        <xsd:element name="departureDate" type="xsd:date"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="lameduck_wsOperationRequest">
+        <part name="date" type="xsd:date"/>
+        <part name="origin" type="xsd:string"/>
+        <part name="destination" type="xsd:string"/>
+    </message>
+    <message name="lameduck_wsOperationResponse">
+        <part name="part1" type="xsd:string"/>
+    </message>
+    <message name="lameduck_wsOperationRequest1">
+        <part name="origin" type="xsd:string"/>
+        <part name="destination" type="xsd:string"/>
+        <part name="departureDate" type="xsd:date"/>
+    </message>
+    <message name="lameduck_wsOperationResponse1">
+        <part name="fligthInformationList" element="tns:getFlightsResponse"/>
+    </message>
+    <message name="lameduck_wsOperationRequest2">
+        <part name="getFlightsRequest" element="tns:getFligthsRequest"/>
+    </message>
+    <message name="lameduck_wsOperationResponse2">
+        <part name="getFlightsResponse" element="tns:getFlightsResponse"/>
+    </message>
+    <portType name="lameduck_wsPortType">
+        <operation name="getFlights">
+            <input name="input1" message="tns:lameduck_wsOperationRequest2"/>
+            <output name="output1" message="tns:lameduck_wsOperationResponse2"/>
+        </operation>
+    </portType>
+    <binding name="lameduck_wsPortTypeBinding" type="tns:lameduck_wsPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getFlights">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="lameduck_wsService">
+        <port name="lameduck_wsPortTypeBindingPort" binding="tns:lameduck_wsPortTypeBinding">
+            <soap:address location="http://Ernests-MacBook-Pro.local:8080/LameDuckWS/lameduck_wsService"/>
+        </port>
+    </service>
+</definitions>

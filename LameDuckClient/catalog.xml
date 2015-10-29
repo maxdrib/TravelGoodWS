@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://Ernests-MacBook-Pro.local:8080/LameDuckWS/lameduck_wsService?wsdl" uri="xml-resources/web-service-references/lameduck_wsService/wsdl/Ernests-MacBook-Pro.local_8080/LameDuckWS/lameduck_wsService.wsdl"/>
+</catalog>
