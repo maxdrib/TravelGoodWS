@@ -10,7 +10,28 @@
     xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
     xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
     xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
-
-   <sequence>
-   </sequence>
+    <import namespace="travelgood.ws" location="travelgoodws.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="PartnerLink1" xmlns:tns="travelgood.ws" partnerLinkType="tns:travelgoodws" myRole="travelgoodwsPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="GetFlightsOut1" xmlns:tns="travelgood.ws" messageType="tns:travelgoodwsOperationResponse1"/>
+        <variable name="GetFlightsIn1" xmlns:tns="travelgood.ws" messageType="tns:travelgoodwsOperationRequest1"/>
+        <variable name="GetFlightsOut" xmlns:tns="travelgood.ws" messageType="tns:travelgoodwsOperationResponse"/>
+        <variable name="GetFlightsIn" xmlns:tns="travelgood.ws" messageType="tns:travelgoodwsOperationRequest"/>
+        <variable name="CreateNewItineraryIn" xmlns:tns="travelgood.ws" messageType="tns:createNewItineraryRequest"/>
+        <variable name="CreateNewItineraryOut" xmlns:tns="travelgood.ws" messageType="tns:createNewItineraryResponse"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="PartnerLink1" operation="createNewItinerary" xmlns:tns="travelgood.ws" portType="tns:travelgoodwsPortType" variable="CreateNewItineraryIn"/>
+        <assign name="Assign1">
+            <copy>
+                <from>0</from>
+                <to variable="CreateNewItineraryOut" part="itineraryID"/>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="PartnerLink1" operation="createNewItinerary" xmlns:tns="travelgood.ws" portType="tns:travelgoodwsPortType" variable="CreateNewItineraryOut"/>
+        <receive name="Receive2" partnerLink="PartnerLink1" operation="getFlights" xmlns:tns="travelgood.ws" portType="tns:travelgoodwsPortType" createInstance="no" variable="GetFlightsIn1"/>
+        <reply name="Reply2" partnerLink="PartnerLink1" operation="getFlights" xmlns:tns="travelgood.ws" portType="tns:travelgoodwsPortType" variable="GetFlightsOut1"/>
+    </sequence>
 </process>
