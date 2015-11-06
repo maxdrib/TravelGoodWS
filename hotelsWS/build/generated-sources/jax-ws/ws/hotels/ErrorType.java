@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para errorType complex type.
+ * <p>Java class for errorType complex type.
  * 
- * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="errorType">
@@ -40,7 +40,7 @@ public class ErrorType {
     protected HotelType hotel;
 
     /**
-     * Obtiene el valor de la propiedad message.
+     * Gets the value of the message property.
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class ErrorType {
     }
 
     /**
-     * Define el valor de la propiedad message.
+     * Sets the value of the message property.
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class ErrorType {
     }
 
     /**
-     * Obtiene el valor de la propiedad hotel.
+     * Gets the value of the hotel property.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class ErrorType {
     }
 
     /**
-     * Define el valor de la propiedad hotel.
+     * Sets the value of the hotel property.
      * 
      * @param value
      *     allowed object is
