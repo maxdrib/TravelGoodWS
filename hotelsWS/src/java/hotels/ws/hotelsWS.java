@@ -43,7 +43,7 @@ public class hotelsWS {
         hotel5.setBookingNumber("5");
         hotel5.setCreditcardGuarantee(true);
         hotel5.setServiceName("Service4");
-        hotel5.setTotalPrice(12.6f);
+        hotel5.setTotalPrice(1001.1f);
         unbooked_hotels.add(hotel5);
         
         HotelType hotel2 = new HotelType();

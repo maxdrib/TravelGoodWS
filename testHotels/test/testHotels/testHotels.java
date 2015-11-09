@@ -103,12 +103,13 @@ public class testHotels {
     }
           
     @Test
-    /* Attempts to book a hotel using a CC with credit limit 0 */
+    /* Attempts to book a hotel using a CC with small Credit limit */
     /* Should throw a BookHotelFault */
-    public void testHotelBookingCreditLimit0() throws BookHotelFault {
+    public void testHotelBookingCreditLimitReached() throws BookHotelFault {
         BookHotelRequest request = new BookHotelRequest();
         request.setBookingNumber("5");
-        request.setCreditcard("Klinkby Poul(CC Limit 0),50408817,3,10");   //CC limit is 0
+        //CC limit is 1000 but hotel costs $1001.1
+        request.setCreditcard("Bech Camilla,50408822,7,9");   
         boolean thrown = false;
         try {
             BookHotelResponse resp = bookHotel(request);
