@@ -126,7 +126,7 @@ public class hotelsWS {
                     // Check if credit card is valid
                     try {
                         
-                        if(validateCreditCard(4, cc, curr_hotel.getTotalPrice())) {
+                        if(validateCreditCard(4, cc, (int)curr_hotel.getTotalPrice())) {
                             System.out.println("Card is valid");
                             booked_hotels.add(curr_hotel);
                             unbooked_hotels.remove(curr_hotel);
