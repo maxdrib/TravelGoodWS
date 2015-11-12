@@ -217,12 +217,6 @@ public class testHotels {
         
     }
 
-    private static GetHotelsResponse getHotels(ws.hotels.GetHotelsRequest getHotelsRequest) {
-        ws.hotels.HotelsWSDLService service = new ws.hotels.HotelsWSDLService();
-        ws.hotels.HotelsWSDLPortType port = service.getHotelsWSDLPort();
-        return port.getHotels(getHotelsRequest);
-    }
-
     private static BookHotelResponse bookHotel(ws.hotels.BookHotelRequest bookHotelRequest) throws BookHotelFault {
         ws.hotels.HotelsWSDLService service = new ws.hotels.HotelsWSDLService();
         ws.hotels.HotelsWSDLPortType port = service.getHotelsWSDLPort();
@@ -234,4 +228,12 @@ public class testHotels {
         ws.hotels.HotelsWSDLPortType port = service.getHotelsWSDLPort();
         port.cancelHotel(cancelHotelRequest);
     }
+
+    private static GetHotelsResponse getHotels(ws.hotels.GetHotelsRequest getHotelsRequest) {
+        ws.hotels.HotelsWSDLService service = new ws.hotels.HotelsWSDLService();
+        ws.hotels.HotelsWSDLPortType port = service.getHotelsWSDLPort();
+        return port.getHotels(getHotelsRequest);
+    }
+
+    
 }

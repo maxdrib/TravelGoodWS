@@ -19,7 +19,7 @@
     <target name="wsimport-client-hotelsWSDLService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/hotelsWSDLService"/>
         <property name="wsdl-hotelsWSDLService" location="xml-resources/web-service-references/hotelsWSDLService/wsdl/localhost_8080/hotelsWS/hotelsWSDLService.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/hotelsWSDLService" destdir="${build.generated.dir}/jax-wsCache/hotelsWSDLService" wsdl="${wsdl-hotelsWSDLService}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/hotelsWS/hotelsWSDLService?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/hotelsWSDLService" destdir="${build.generated.dir}/jax-wsCache/hotelsWSDLService" wsdl="${wsdl-hotelsWSDLService}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/hotelsWS/hotelsWSDLService?wsdl" xnocompile="true" xendorsed="true" package="ws.hotels">
             <depends file="${wsdl-hotelsWSDLService}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/hotelsWSDLService"/>
         </wsimport>
