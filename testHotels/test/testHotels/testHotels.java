@@ -51,6 +51,36 @@ public class testHotels {
         
         // Check correct size of hotel list, should be two
         assertEquals( 2, list_of_hotels.size());
+    }    
+    @Test
+    /* Attempts to fetch all hotels where city is Lyngby */
+    /* Hotel list should contain 2 entries. */
+    public void testGetHotelsEmpty() throws DatatypeConfigurationException {
+        
+        // Set up the request
+        DatatypeFactory df = DatatypeFactory.newInstance();
+        XMLGregorianCalendar arrivalDate = df.newXMLGregorianCalendar("2015-09-17");
+        XMLGregorianCalendar departureDate = df.newXMLGregorianCalendar("2015-09-18");
+        GetHotelsRequest request = new GetHotelsRequest();
+        request.setCity("Barcelona");
+        request.setArrivalDate(arrivalDate);
+        request.setDepartureDate(departureDate);
+        
+        // Call the operation
+        GetHotelsResponse response = getHotels(request);
+        HotelListType hotelList = response.getHotelList();
+        List<HotelType> list_of_hotels = hotelList.getHotel();
+        
+        // Iterate through hotel list to see if hotels match request critera
+        for (HotelType curr_hotel : list_of_hotels) {
+            String city = curr_hotel.getAddress().split(",")[1];
+            
+            // Check to see if all matches really have an address in Lyngby
+            assertEquals(city, "Barcelona");
+        }
+        
+        // Check correct size of hotel list, should be two
+        assertEquals( 0, list_of_hotels.size());
     }
     
     @Test
@@ -168,6 +198,22 @@ public class testHotels {
         request2.setCreditcard("Thor-Jensen Claus,50408825,5,9");
         BookHotelResponse resp2 = bookHotel(request2);
         assertEquals(resp2.isStatus(), true);
+        
+    }    
+    @Test
+    /* Cancels a booked hotel, then re-books it */
+    public void testCancelBookingFailure() throws CancelHotelFault, BookHotelFault {
+        // Cancel booked hotel
+        CancelHotelRequest request = new CancelHotelRequest();
+        request.setBookingNumber("1");
+        boolean thrown = false;
+        try  {
+            cancelHotel(request);
+        }
+        catch (CancelHotelFault e) {
+            thrown = true;
+        }
+        assertEquals(thrown, true);
         
     }
 
