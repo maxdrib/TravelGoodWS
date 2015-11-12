@@ -108,7 +108,7 @@ public class testHotels {
     public void testHotelBookingCreditLimitReached() throws BookHotelFault {
         BookHotelRequest request = new BookHotelRequest();
         request.setBookingNumber("5");
-        //CC limit is 1000 but hotel costs $1001.1
+        //CC limit is 1000 but hotel costs $1001
         request.setCreditcard("Bech Camilla,50408822,7,9");   
         boolean thrown = false;
         try {

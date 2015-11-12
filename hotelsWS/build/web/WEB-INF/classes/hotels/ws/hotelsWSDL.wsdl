@@ -10,9 +10,9 @@
                     <xsd:element name="name" type="xsd:string"></xsd:element>
                     <xsd:element name="address" type="xsd:string"></xsd:element>
                     <xsd:element name="bookingNumber" type="xsd:string"></xsd:element>
-                    <xsd:element name="totalPrice" type="xsd:float"></xsd:element>
                     <xsd:element name="creditcardGuarantee" type="xsd:boolean"></xsd:element>
                     <xsd:element name="serviceName" type="xsd:string"></xsd:element>
+                    <xsd:element name="price" type="xsd:int" id="price"></xsd:element>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:complexType name="hotelListType">

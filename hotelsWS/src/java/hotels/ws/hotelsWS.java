@@ -34,7 +34,7 @@ public class hotelsWS {
         hotel1.setBookingNumber("1");
         hotel1.setCreditcardGuarantee(true);
         hotel1.setServiceName("Service1");
-        hotel1.setTotalPrice(12.6f);
+        hotel1.setTotalPrice(12);
         unbooked_hotels.add(hotel1);
      
         HotelType hotel5 = new HotelType();
@@ -43,7 +43,7 @@ public class hotelsWS {
         hotel5.setBookingNumber("5");
         hotel5.setCreditcardGuarantee(true);
         hotel5.setServiceName("Service4");
-        hotel5.setTotalPrice(1001.1f);
+        hotel5.setTotalPrice(1002);
         unbooked_hotels.add(hotel5);
         
         HotelType hotel2 = new HotelType();
@@ -52,7 +52,7 @@ public class hotelsWS {
         hotel2.setBookingNumber("2");
         hotel2.setCreditcardGuarantee(true);
         hotel2.setServiceName("Service1");
-        hotel2.setTotalPrice(12.5f);
+        hotel2.setTotalPrice(12);
         unbooked_hotels.add(hotel2);  
         
         HotelType hotel3 = new HotelType();
@@ -61,7 +61,7 @@ public class hotelsWS {
         hotel3.setBookingNumber("3");
         hotel3.setCreditcardGuarantee(false);
         hotel3.setServiceName("Service2");
-        hotel3.setTotalPrice(12.5f);
+        hotel3.setTotalPrice(12);
         unbooked_hotels.add(hotel3);
         
         /* BOOKED HOTELS */
@@ -72,7 +72,7 @@ public class hotelsWS {
         hotel4.setBookingNumber("4");
         hotel4.setCreditcardGuarantee(false);
         hotel4.setServiceName("Service4");
-        hotel4.setTotalPrice(12.5f);
+        hotel4.setTotalPrice(12);
         booked_hotels.add(hotel4);
     }
     
@@ -125,7 +125,7 @@ public class hotelsWS {
                     // Check if credit card is valid
                     try {
                         
-                        if(validateCreditCard(4, cc, (int)curr_hotel.getTotalPrice())) {
+                        if(validateCreditCard(4, cc, curr_hotel.getTotalPrice())) {
                             System.out.println("Card is valid");
                             booked_hotels.add(curr_hotel);
                             unbooked_hotels.remove(curr_hotel);

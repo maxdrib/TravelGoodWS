@@ -48,7 +48,7 @@ public class HotelType {
     protected String address;
     @XmlElement(required = true)
     protected String bookingNumber;
-    protected float totalPrice;
+    protected int totalPrice;
     protected boolean creditcardGuarantee;
     @XmlElement(required = true)
     protected String serviceName;
@@ -129,7 +129,7 @@ public class HotelType {
      * Gets the value of the totalPrice property.
      * 
      */
-    public float getTotalPrice() {
+    public int getTotalPrice() {
         return totalPrice;
     }
 
@@ -137,7 +137,7 @@ public class HotelType {
      * Sets the value of the totalPrice property.
      * 
      */
-    public void setTotalPrice(float value) {
+    public void setTotalPrice(int value) {
         this.totalPrice = value;
     }
 
