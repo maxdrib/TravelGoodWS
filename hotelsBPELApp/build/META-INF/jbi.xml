@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://hotelsBPEL_WSDL" xmlns:ns2="http://enterprise.netbeans.org/bpel/hotelsBPEL/hotelsBPEL" xmlns:ns3="http://hotels.ws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/jbi ./jbi.xsd">
+    <service-assembly>
+        <identification>
+            <name>hotelsBPELApp</name>
+            <description>Represents the Service Assembly of hotelsBPELApp</description>
+        </identification>
+        <service-unit>
+            <identification>
+                <name>hotelsBPELApp-hotelsBPEL</name>
+                <description>Represents this Service Unit</description>
+            </identification>
+            <target>
+                <artifacts-zip>hotelsBPEL.jar</artifacts-zip>
+                <component-name>sun-bpel-engine</component-name>
+            </target>
+        </service-unit>
+        <service-unit>
+            <identification>
+                <name>hotelsBPELApp-sun-http-binding</name>
+                <description>Represents this Service Unit</description>
+            </identification>
+            <target>
+                <artifacts-zip>sun-http-binding.jar</artifacts-zip>
+                <component-name>sun-http-binding</component-name>
+            </target>
+        </service-unit>
+        <connections>
+            <connection>
+                <consumer endpoint-name="hotelsBPEL_WSDLPortTypeBindingPort" service-name="ns1:hotelsBPEL_WSDLService"/>
+                <provider endpoint-name="hotelsBPEL_WSDLRole_myRole" service-name="ns2:PartnerLink2"/>
+            </connection>
+            <connection>
+                <consumer endpoint-name="hotelsWSDLRole_partnerRole" service-name="ns2:PartnerLink1"/>
+                <provider endpoint-name="hotelsWSDLPort" service-name="ns3:hotelsWSDLService"/>
+            </connection>
+        </connections>
+    </service-assembly>
+</jbi>

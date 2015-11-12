@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="hotelsBPEL_WSDL" targetNamespace="http://hotelsBPEL_WSDL"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://hotelsBPEL_WSDL" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema targetNamespace="http://hotelsBPEL_WSDL" xmlns:tns="http://hotelsBPEL_WSDL">
+            <xsd:complexType name="hotelType">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string"></xsd:element>
+                    <xsd:element name="address" type="xsd:string"></xsd:element>
+                    <xsd:element name="bookingNumber" type="xsd:string"></xsd:element>
+                    <xsd:element name="creditcardGuarantee" type="xsd:boolean"></xsd:element>
+                    <xsd:element name="serviceName" type="xsd:string"></xsd:element>
+                    <xsd:element name="totalPrice" type="xsd:int"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="hotelListType">
+                <xsd:sequence>
+                    <xsd:element name="hotel" type="tns:hotelType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getHotelsRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="city" type="xsd:string"></xsd:element>
+                        <xsd:element name="arrivalDate" type="xsd:date"></xsd:element>
+                        <xsd:element name="departureDate" type="xsd:date"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getHotelsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="hotelList" type="tns:hotelListType"></xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="hotelList" type="tns:hotelListType"></xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="getHotelsRequest">
+        <part name="getHotelsRequest" element="tns:getHotelsRequest"/>
+    </message>
+    <message name="getHotelsResponse">
+        <part name="getHotelsResponse" element="tns:getHotelsResponse"/>
+    </message>
+    <portType name="hotelsBPEL_WSDLPortType">
+        <operation name="getHotels">
+            <input name="input2" message="tns:getHotelsRequest"/>
+            <output name="output2" message="tns:getHotelsResponse"/>
+        </operation>
+    </portType>
+    <binding name="hotelsBPEL_WSDLPortTypeBinding" type="tns:hotelsBPEL_WSDLPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getHotels">
+            <soap:operation/>
+            <input name="input2">
+                <soap:body use="literal"/>
+            </input>
+            <output name="output2">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="hotelsBPEL_WSDLService">
+        <port name="hotelsBPEL_WSDLPortTypeBindingPort" binding="tns:hotelsBPEL_WSDLPortTypeBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/service"/>
+        </port>
+    </service>
+</definitions>
