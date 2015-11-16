@@ -35,10 +35,13 @@ namespace TravelGood.Controllers
                 return NotFound();
             }
 
-            itinerary.addHotel(hotelBookingNumber);
+            var hotel = new HotelItem();
+            hotel.bookingNumber = hotelBookingNumber;
+            itinerary.hotels.Add(hotel);
             return PutItinerary(id, itinerary);
         }
 
+        // PUT: BookItinerary and CancelBooking
         [Route("{id:int}/status")]
         [ResponseType(typeof(void))]
         [HttpPut]
@@ -52,8 +55,9 @@ namespace TravelGood.Controllers
 
             //BOOK
             if ("booked" == status.status.ToLower()) { 
-                foreach (var hotelNum in itinerary.hotelList())
+                foreach (var booking in itinerary.hotels)
                 {
+                    var hotelNum = booking.bookingNumber;
                     if (BookHotel(hotelNum, status.creditcard) == false) {
                         DeleteItinerary(id);
                         return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.InternalServerError, "Failed booking hotel: " + hotelNum));
@@ -67,8 +71,9 @@ namespace TravelGood.Controllers
             else if ("cancelled" == status.status.ToLower())
             {
                 itinerary.state = itineraryStates.cancelled;
-                foreach (var hotelNum in itinerary.hotelList())
+                foreach (var booking in itinerary.hotels)
                 {
+                    var hotelNum = booking.bookingNumber;
                     if (CancelHotel(hotelNum) == false)
                     {
                         //add to failed hotels
@@ -90,11 +95,11 @@ namespace TravelGood.Controllers
             return db.Itineraries;
         }
 
-        // GET: api/Itinerary/5
+        // GET: GetItinerary
         [ResponseType(typeof(Itinerary))]
         public IHttpActionResult GetItinerary(int id)
         {
-            Itinerary itinerary = db.Itineraries.Find(id);
+            Itinerary itinerary = db.Itineraries.Include(i => i.hotels).SingleOrDefault(i => i.ID == id);
             if (itinerary == null)
             {
                 return NotFound();
@@ -103,7 +108,7 @@ namespace TravelGood.Controllers
             return Ok(itinerary);
         }
 
-        // PUT: api/Itinerary/5
+        // PUT: not used
         [ResponseType(typeof(void))]
         public IHttpActionResult PutItinerary(int id, Itinerary itinerary)
         {
@@ -138,7 +143,7 @@ namespace TravelGood.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Itinerary
+        // POST: CreateNewItinerary
         [ResponseType(typeof(Itinerary))]
         public IHttpActionResult PostItinerary(Itinerary itinerary)
         {
@@ -153,7 +158,7 @@ namespace TravelGood.Controllers
             return CreatedAtRoute("DefaultApi", new { id = itinerary.ID }, itinerary);
         }
 
-        // DELETE: api/Itinerary/5
+        // DELETE: CancelItinerary
         [ResponseType(typeof(Itinerary))]
         public IHttpActionResult DeleteItinerary(int id)
         {

@@ -33,5 +33,7 @@ namespace TravelGood.Models
         }
 
         public System.Data.Entity.DbSet<TravelGood.Models.Itinerary> Itineraries { get; set; }
+
+        public System.Data.Entity.DbSet<TravelGood.Models.HotelItem> HotelItems { get; set; }
     }
 }

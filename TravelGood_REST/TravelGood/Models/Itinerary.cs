@@ -18,31 +18,13 @@ namespace TravelGood.Models
     public class Itinerary
     {
         public Itinerary() {
-            hotels = "[]";
             state = itineraryStates.draft;
         }
 
+        [JsonIgnore]
         public int ID { get; set; }
         public string username { get; set; }
-        public string hotels { get; set; }  //they cannot be simple strings!
+        public virtual ICollection<HotelItem> hotels { get; set; }
         public itineraryStates state { get; set; }
-
-        public void addHotel(string num)
-        {
-            var hList = JsonConvert.DeserializeObject<IList<string>>(hotels);
-            hList.Add(num);
-            hotels = JsonConvert.SerializeObject(hList);
-        }
-
-        public string getHotel(int index)
-        {
-            var hList = JsonConvert.DeserializeObject<IList<string>>(hotels);
-            return hList[index];
-        }
-
-        public IList<string> hotelList()
-        {
-            return JsonConvert.DeserializeObject<IList<string>>(hotels);
-        }
     }
 }
