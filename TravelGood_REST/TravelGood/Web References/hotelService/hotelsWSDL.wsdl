@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://hotels.ws" xmlns="http://schemas.xmlsoap.org/wsdl/" name="hotelsWSDL" targetNamespace="http://hotels.ws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://hotels.ws">
+      <xsd:complexType name="hotelType">
+        <xsd:sequence>
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="address" type="xsd:string" />
+          <xsd:element name="bookingNumber" type="xsd:string" />
+          <xsd:element name="totalPrice" type="xsd:float" />
+          <xsd:element name="creditcardGuarantee" type="xsd:boolean" />
+          <xsd:element name="serviceName" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="hotelListType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="hotel" type="tns:hotelType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="hotelList" type="tns:hotelListType" />
+      <xsd:complexType name="errorType">
+        <xsd:sequence>
+          <xsd:element name="message" type="xsd:string" />
+          <xsd:element name="hotel" type="tns:hotelType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getHotelsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="city" type="xsd:string" />
+            <xsd:element name="arrivalDate" type="xsd:date" />
+            <xsd:element name="departureDate" type="xsd:date" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getHotelsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="hotelList" type="tns:hotelListType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="bookHotelRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="bookingNumber" type="xsd:string" />
+            <xsd:element name="creditcard" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="bookHotelResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" name="status" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cancelHotelRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="bookingNumber" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="fault" type="tns:errorType" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="cancelHotelRequest">
+    <wsdl:part name="cancelHotelRequest" element="tns:cancelHotelRequest" />
+  </wsdl:message>
+  <wsdl:message name="cancelHotelResponse" />
+  <wsdl:message name="cancelHotelFault">
+    <wsdl:part name="cancelFailed" element="tns:fault" />
+  </wsdl:message>
+  <wsdl:message name="getHotelsRequest">
+    <wsdl:part name="getHotelsRequest" element="tns:getHotelsRequest" />
+  </wsdl:message>
+  <wsdl:message name="getHotelsResponse">
+    <wsdl:part name="getHotelsResponse" element="tns:getHotelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="bookHotelRequest">
+    <wsdl:part name="bookHotelRequest" element="tns:bookHotelRequest" />
+  </wsdl:message>
+  <wsdl:message name="bookHotelResponse">
+    <wsdl:part name="bookHotelResponse" element="tns:bookHotelResponse" />
+  </wsdl:message>
+  <wsdl:message name="bookHotelFault">
+    <wsdl:part name="bookingFailed" element="tns:fault" />
+  </wsdl:message>
+  <wsdl:portType name="hotelsWSDLPortType">
+    <wsdl:operation name="cancelHotel">
+      <wsdl:input name="input1" message="tns:cancelHotelRequest" />
+      <wsdl:output name="output1" message="tns:cancelHotelResponse" />
+      <wsdl:fault name="fault1" message="tns:cancelHotelFault" />
+    </wsdl:operation>
+    <wsdl:operation name="getHotels">
+      <wsdl:input name="input2" message="tns:getHotelsRequest" />
+      <wsdl:output name="output2" message="tns:getHotelsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="bookHotel">
+      <wsdl:input name="input3" message="tns:bookHotelRequest" />
+      <wsdl:output name="output3" message="tns:bookHotelResponse" />
+      <wsdl:fault name="fault1" message="tns:bookHotelFault" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="hotelsWSDLPortTypeBinding" type="tns:hotelsWSDLPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="cancelHotel">
+      <soap:operation soapAction="" />
+      <wsdl:input name="input1">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="output1">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault use="literal" name="fault1" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getHotels">
+      <soap:operation soapAction="" />
+      <wsdl:input name="input2">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="output2">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="bookHotel">
+      <soap:operation soapAction="" />
+      <wsdl:input name="input3">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="output3">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="fault1">
+        <soap:fault use="literal" name="fault1" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="hotelsWSDLService">
+    <wsdl:port name="hotelsWSDLPort" binding="tns:hotelsWSDLPortTypeBinding">
+      <soap:address location="http://10.16.171.128:8080/hotelsWS/hotelsWSDLService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

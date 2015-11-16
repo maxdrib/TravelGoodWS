@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="urn://fastmoney.imm.dtu.dk" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="BankService" targetNamespace="urn://fastmoney.imm.dtu.dk" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="http://fastmoney.imm.dtu.dk" location="http://fastmoney.imm.dtu.dk:8080/BankService?wsdl=1" />
+  <types />
+  <binding xmlns:ns1="http://fastmoney.imm.dtu.dk" name="BankPortBinding" type="ns1:BankPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="chargeCreditCard">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="CreditCardFaultMessage">
+        <soap:fault use="literal" name="CreditCardFaultMessage" namespace="" />
+      </fault>
+    </operation>
+    <operation name="validateCreditCard">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="CreditCardFaultMessage">
+        <soap:fault use="literal" name="CreditCardFaultMessage" namespace="" />
+      </fault>
+    </operation>
+    <operation name="refundCreditCard">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="CreditCardFaultMessage">
+        <soap:fault use="literal" name="CreditCardFaultMessage" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="BankService">
+    <port name="BankPort" binding="tns:BankPortBinding">
+      <soap:address location="http://fastmoney.imm.dtu.dk:8080/BankService" />
+    </port>
+  </service>
+</definitions>

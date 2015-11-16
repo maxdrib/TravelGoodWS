@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Ernests-MacBook-Pro.local" name="testHotels.testHotels" skipped="0" tests="10" time="14.01" timestamp="2015-11-12T10:35:21">
+<testsuite errors="0" failures="0" hostname="Ernests-MacBook-Pro.local" name="testHotels.testHotels" skipped="0" tests="10" time="2.141" timestamp="2015-11-14T17:00:06">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -60,7 +60,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testHotels.testHotels skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/ernestbofill/Documents/SDWS_Project/testHotels/build/test/results/TEST-testHotels.testHotels.xml crashfile=/Users/ernestbofill/Documents/SDWS_Project/testHotels/build/junitvmwatcher2208638281824875835.properties propsfile=/Users/ernestbofill/Documents/SDWS_Project/testHotels/build/junit6807246946958377608.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner testHotels.testHotels skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/ernestbofill/Documents/SDWS_Project/testHotels/build/test/results/TEST-testHotels.testHotels.xml crashfile=/Users/ernestbofill/Documents/SDWS_Project/testHotels/build/junitvmwatcher3633621573993346453.properties propsfile=/Users/ernestbofill/Documents/SDWS_Project/testHotels/build/junit4960037920140985970.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="build.sysclasspath" value="ignore" />
     <property name="ap.supported.internal" value="true" />
@@ -103,7 +103,7 @@
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="/" />
     <property name="libs.Java-EE-GlassFish-v3-Prelude.maven-pom" value="" />
-    <property name="javac.includesfile.binary" value="/Users/ernestbofill/Documents/SDWS_Project/testHotels/null631150802" />
+    <property name="javac.includesfile.binary" value="/Users/ernestbofill/Documents/SDWS_Project/testHotels/null1567515466" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value=":build/classes:/Applications/OpenESB-SE-3.0.5/OE-Studio/netbeans/platform/modules/ext/junit-4.10.jar" />
@@ -415,16 +415,16 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="/Applications/OpenESB-SE-3.0.5/OE-Studio/netbeans/enterprise/docs/javaee-doc-api.jar" />
   </properties>
-  <testcase classname="testHotels.testHotels" name="testGetHotels" time="5.49" />
-  <testcase classname="testHotels.testHotels" name="testGetHotelsEmpty" time="0.057" />
-  <testcase classname="testHotels.testHotels" name="testBookingNoCreditCard" time="0.063" />
-  <testcase classname="testHotels.testHotels" name="testHotelBookingFakeCC" time="1.474" />
-  <testcase classname="testHotels.testHotels" name="testHotelBookingIncorrectCC" time="0.837" />
-  <testcase classname="testHotels.testHotels" name="testHotelBookingCreditLimitReached" time="2.498" />
-  <testcase classname="testHotels.testHotels" name="testHotelBookingSuccess" time="3.399" />
-  <testcase classname="testHotels.testHotels" name="testHotelBookingFailure" time="0.047" />
-  <testcase classname="testHotels.testHotels" name="testCancelBookingSuccess" time="0.039" />
-  <testcase classname="testHotels.testHotels" name="testCancelBookingFailure" time="0.026" />
+  <testcase classname="testHotels.testHotels" name="testGetHotels" time="0.737" />
+  <testcase classname="testHotels.testHotels" name="testGetHotelsEmpty" time="0.048" />
+  <testcase classname="testHotels.testHotels" name="testBookingNoCreditCard" time="0.055" />
+  <testcase classname="testHotels.testHotels" name="testHotelBookingFakeCC" time="0.883" />
+  <testcase classname="testHotels.testHotels" name="testHotelBookingIncorrectCC" time="0.058" />
+  <testcase classname="testHotels.testHotels" name="testHotelBookingCreditLimitReached" time="0.061" />
+  <testcase classname="testHotels.testHotels" name="testHotelBookingSuccess" time="0.06" />
+  <testcase classname="testHotels.testHotels" name="testHotelBookingFailure" time="0.065" />
+  <testcase classname="testHotels.testHotels" name="testCancelBookingSuccess" time="0.049" />
+  <testcase classname="testHotels.testHotels" name="testCancelBookingFailure" time="0.028" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
