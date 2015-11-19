@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://lameDuck/web" xmlns:ns0="http://lameDuck/xsd.ws" name="lameDuckWS" targetNamespace="http://lameDuck/web">
+<wsdl:import namespace="http://lameDuck/web" location="lameDuckWS.wsdl"/>
+<wsdl:binding name="lameDuckWSBinding" type="tns:lameDuckWSPortType">
+<soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="getFlights">
+<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="getFlights_action"/>
+<wsdl:input name="input1">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:input>
+<wsdl:output name="output1">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="bookFlight">
+<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="bookFlight_action"/>
+<wsdl:input name="input2">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:input>
+<wsdl:output name="output2">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:output>
+<wsdl:fault name="fault1">
+<soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="fault1" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="cancelFlight">
+<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="cancelFlight_action"/>
+<wsdl:input name="input3">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:input>
+<wsdl:output name="output3">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:output>
+<wsdl:fault name="fault1">
+<soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="fault1" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="lameDuckWSService">
+<wsdl:port name="lameDuckWSPort" binding="tns:lameDuckWSBinding">
+<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="REPLACE_WITH_ACTUAL_URL"/>
+</wsdl:port>
+</wsdl:service>
+</definitions>
