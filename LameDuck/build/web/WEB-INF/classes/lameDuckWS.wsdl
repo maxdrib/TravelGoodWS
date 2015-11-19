@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="lameDuckWS" targetNamespace="http://lameDuck/web"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://lameDuck/web" xmlns:ns0="http://lameDuck/xsd.ws" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types>
+        <xsd:schema targetNamespace="http://lameDuck/web" xmlns:ns1="http://types.fastmoney.imm.dtu.dk">
+            <xsd:import namespace="http://lameDuck/xsd.ws" schemaLocation="lameData.xsd"/>
+            <xsd:import namespace="http://types.fastmoney.imm.dtu.dk" schemaLocation="BankServiceTypes.xsd"/>
+            <xsd:complexType name="bookRequest">
+                <xsd:sequence>
+                    <xsd:element name="creditCardInfo" type="ns1:creditCardInfoType"></xsd:element>
+                    <xsd:element name="bookingNumber" type="xsd:string"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getBookRequest" type="tns:bookRequest"></xsd:element>
+            <xsd:element name="status" type="xsd:boolean"></xsd:element>
+            <xsd:complexType name="bookFaultType">
+                <xsd:sequence>
+                    <xsd:element name="errorMessage" type="xsd:string"></xsd:element>
+                    <xsd:element name="creditCard" type="ns1:creditCardInfoType"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="bookFault" type="tns:bookFaultType"></xsd:element>
+            <xsd:element name="statusCancel" type="xsd:boolean"></xsd:element>
+            <xsd:complexType name="cancelRequest">
+                <xsd:sequence>
+                    <xsd:element name="bookingNumber" type="xsd:string"></xsd:element>
+                    <xsd:element name="price" type="xsd:int"></xsd:element>
+                    <xsd:element name="creditCardInfo" type="ns1:creditCardInfoType"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getCancelRequest" type="tns:cancelRequest"></xsd:element>
+            <xsd:complexType name="cancelFaultType">
+                <xsd:sequence>
+                    <xsd:element name="errorMessage" type="xsd:string"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="cancelFault" type="tns:cancelFaultType"></xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="lameDuckWSOperationRequest">
+        <part name="getFlightRequest" element="ns0:getFlighRequest"/>
+    </message>
+    <message name="lameDuckResponse">
+        <part name="getFlightResponse" element="ns0:getFlightsResponse"/>
+    </message>
+    <message name="lameDuckBookFlightRequest">
+        <part name="getBookRequest" element="tns:getBookRequest"/>
+    </message>
+    <message name="lameDuckBookFlightResponse">
+        <part name="getBookResponse" element="tns:status"/>
+    </message>
+    <message name="getBookingFault">
+        <part name="bookingFault" element="tns:bookFault"/>
+    </message>
+    <message name="lameDuckCancelFlightRequest">
+        <part name="getCancelRequest" element="tns:getCancelRequest"/>
+    </message>
+    <message name="lameDuckCancelFlightResponse">
+        <part name="getCancelResponse" element="tns:statusCancel"/>
+    </message>
+    <message name="getCancelFault">
+        <part name="cancelFault" element="tns:cancelFault"/>
+    </message>
+    <portType name="lameDuckWSPortType">
+        <operation name="getFlights">
+            <input name="input1" message="tns:lameDuckWSOperationRequest"/>
+            <output name="output1" message="tns:lameDuckResponse"/>
+        </operation>
+        <operation name="bookFlight">
+            <input name="input2" message="tns:lameDuckBookFlightRequest"/>
+            <output name="output2" message="tns:lameDuckBookFlightResponse"/>
+            <fault name="fault1" message="tns:getBookingFault"/>
+        </operation>
+        <operation name="cancelFlight">
+            <input name="input3" message="tns:lameDuckCancelFlightRequest"/>
+            <output name="output3" message="tns:lameDuckCancelFlightResponse"/>
+            <fault name="fault1" message="tns:getCancelFault"/>
+        </operation>
+    </portType>
+    <binding name="lameDuckWSPortTypeBinding" type="tns:lameDuckWSPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getFlights">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://lameDuck/web"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://lameDuck/web"/>
+            </output>
+        </operation>
+        <operation name="bookFlight">
+            <soap:operation/>
+            <input name="input2">
+                <soap:body use="literal" namespace="http://lameDuck/web"/>
+            </input>
+            <output name="output2">
+                <soap:body use="literal" namespace="http://lameDuck/web"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault name="fault1" use="literal" namespace="http://lameDuck/web"/>
+            </fault>
+        </operation>
+        <operation name="cancelFlight">
+            <soap:operation/>
+            <input name="input3">
+                <soap:body use="literal" namespace="http://lameDuck/web"/>
+            </input>
+            <output name="output3">
+                <soap:body use="literal" namespace="http://lameDuck/web"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault name="fault1" use="literal" namespace="http://lameDuck/web"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="lameDuckWSService">
+        <port name="lameDuckWSPortTypeBindingPort" binding="tns:lameDuckWSPortTypeBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/service"/>
+        </port>
+    </service>
+</definitions>

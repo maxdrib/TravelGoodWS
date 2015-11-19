@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://lameDuck/xsd.ws"
+    xmlns:tns="http://lameDuck/xsd.ws"
+    elementFormDefault="qualified">
+	<xsd:complexType name="flight">
+		<xsd:sequence>
+			<xsd:element name="origin" type="xsd:string"></xsd:element>
+			<xsd:element name="destination" type="xsd:string"></xsd:element>
+			<xsd:element name="departureDateTime" type="xsd:date"></xsd:element>
+			<xsd:element name="arrivalDateTime" type="xsd:date"></xsd:element>
+			<xsd:element name="carrier" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="fligthInformation">
+		<xsd:sequence>
+			<xsd:element name="flight" type="tns:flight"></xsd:element>
+			<xsd:element name="bookingNumber" type="xsd:string"></xsd:element>
+			<xsd:element name="price" type="xsd:float"></xsd:element>
+			<xsd:element name="airlineReservationService" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="flightInformationList">
+		<xsd:sequence>
+			<xsd:element name="flightInformation" type="tns:fligthInformation" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="getFlightsResponse" type="tns:flightInformationList"></xsd:element>
+	<xsd:complexType name="request">
+		<xsd:sequence>
+			<xsd:element name="origin" type="xsd:string"></xsd:element>
+			<xsd:element name="destination" type="xsd:string"></xsd:element>
+			<xsd:element name="departureDate" type="xsd:date"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="getFlighRequest" type="tns:request"></xsd:element>
+</xsd:schema>

@@ -1,0 +1,167 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ld.ws;
+
+import bank.ws.AccountType;
+import bank.ws.BankService;
+import bank.ws.CreditCardFaultMessage;
+import bank.ws.CreditCardInfoType;
+import javax.jws.WebService;
+
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import lameduck.web.GetBookingFault;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.ws.WebServiceRef;
+import lameduck.web.BookFaultType;
+import lameduck.web.BookRequest;
+import lameduck.xsd.Flight;
+import lameduck.xsd.FlightInformationList;
+import lameduck.xsd.FligthInformation;
+
+/**
+ *
+ * @author Omar
+ */
+@WebService(serviceName = "lameDuckWSService", portName = "lameDuckWSPortTypeBindingPort", endpointInterface = "lameduck.web.LameDuckWSPortType", targetNamespace = "http://lameDuck/web", wsdlLocation = "WEB-INF/wsdl/LameDuck/lameDuckWS.wsdl")
+public class LameDuck {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/fastmoney.imm.dtu.dk_8080/BankService.wsdl")
+    private BankService service;
+    
+    static FlightInformationList flightInfoList;
+    
+    public LameDuck() throws DatatypeConfigurationException {
+        // Create a new variable to store the flights
+        flightInfoList = new FlightInformationList();
+        // Store the current status of the list, initially null
+        List<FligthInformation> flightInfoL = flightInfoList.getFlightInformation();
+        // Add a FlightInformation to the list
+        FligthInformation flightInfo1 = new FligthInformation();
+        // The flight information is composed of four parameters: Flight, Booking number, Price, Airline Reservation Service
+            // We first create the Flight of this first FlightInformation  element
+        Flight flight1 = new Flight(); // Flights have the following information: Arrival Date / Time, Carrier, Departure time, Destination, Origin
+        XMLGregorianCalendar datetime = DatatypeFactory.newInstance().newXMLGregorianCalendar("2015-11-25");
+        datetime.setTime(11, 11, 11);
+        flight1.setArrivalDateTime(datetime);   // Set the date & time of the flight
+        flight1.setCarrier("Air Canada");       // Set the Carrier information
+        flight1.setOrigin("Denmark");           // Set the origin
+        flight1.setDestination("Mexico");       // Set the destination
+        flightInfo1.setFlight(flight1);          // Finally assign the flight to the first flight info
+            // Set the booking number of the flight info
+        flightInfo1.setBookingNumber("007booking");
+            // Set the Price
+        flightInfo1.setPrice((float)5000.1);
+            // Set the Airline Reservation Service
+        flightInfo1.setAirlineReservationService("travelGood");
+        flightInfoL.add(flightInfo1);
+    }
+    
+    
+    
+    public lameduck.xsd.FlightInformationList getFlights(lameduck.xsd.Request getFlightRequest) {
+        // Here we assume we are giving back a list with the Flight Information to the destinations the client asked for
+        return flightInfoList;  // It is a list with only one element...
+    }
+
+    public boolean bookFlight(lameduck.web.BookRequest getBookRequest) throws GetBookingFault {
+        BookRequest request = getBookRequest;
+        // Extract the information from the request
+        String bookingNo = request.getBookingNumber();  // booking number
+        dk.dtu.imm.fastmoney.types.CreditCardInfoType creditCard = request.getCreditCardInfo();    // Credit Card Information
+        dk.dtu.imm.fastmoney.types.CreditCardInfoType.ExpirationDate expDate = creditCard.getExpirationDate();
+        // Get all the parameters, and construct a new object from these
+        String name = creditCard.getName();
+        String number = creditCard.getNumber();
+        int month = expDate.getMonth();
+        int year = expDate.getYear();
+        // Create a copy with the new type of credit card
+        CreditCardInfoType creditCardCopy = new CreditCardInfoType();
+        CreditCardInfoType.ExpirationDate exp = new CreditCardInfoType.ExpirationDate();
+        exp.setMonth(month);
+        exp.setYear(year);
+        creditCardCopy.setExpirationDate(exp);
+        creditCardCopy.setName(name);
+        creditCardCopy.setNumber(number);
+        
+        // First we need to check if the credit card is valid, 
+            // if it is: We charge the card
+            // if not: We throw an exception
+        
+        // To validate the credit card we must validate it has enough money to pay the flight
+        // We extract the cost of the flight and send it to the validateCreditCard function
+        List<FligthInformation> flightList = flightInfoList.getFlightInformation();
+        FligthInformation flightInfo = flightList.get(0);
+        float price = flightInfo.getPrice();
+        
+        // We try to validate the card in case that it is not valid catch the fault and throw a new GetBookingFault
+        try {
+            // Here we validate the credit card format is ok, and that it exists, furthermore
+            // we validate that the credit card has enough money
+            boolean valid = validateCreditCard(4, creditCardCopy, (int) price);
+            // Once that the credit card is validated we can proceed to make the charge
+            // We could add an if(valid) but maybe is not necessary because of the exception? The thing is that 
+            // I'm not sure if I should return the valid = false or only the fault. Not very clear in the project description.
+            AccountType acc = new AccountType();
+            acc.setName("LameDuck"); // Account to which the money is being transfered
+            acc.setNumber("50208812");
+            try{
+                boolean charged = chargeCreditCard(4, creditCardCopy, (int) price, acc);
+                // IF THE CARD IS VALID AND THE CHARGE WAS SUCCESFUL RETURN THE VALUE OF CHARGED WHICH MUST BE TRUE
+                return charged;
+                
+            }catch(CreditCardFaultMessage e){
+                GetBookingFault chargingFault;
+                BookFaultType faultCharging = new BookFaultType();
+                faultCharging.setCreditCard(creditCard);
+                faultCharging.setErrorMessage(e.getFaultInfo().getMessage());
+                chargingFault = new GetBookingFault("Error while charging card", faultCharging);
+                // Console
+                System.out.println("Credit card fault");    // Indicate in the console there was a fault
+                String error = e.getFaultInfo().getMessage();
+                System.out.println(error);  // Display the answer from the server
+                throw chargingFault;
+                
+            }
+        } catch (CreditCardFaultMessage ex) {
+            GetBookingFault validateFault;
+            BookFaultType faultValidate = new BookFaultType();
+            faultValidate.setCreditCard(creditCard);
+            faultValidate.setErrorMessage(ex.getFaultInfo().getMessage());
+            validateFault = new GetBookingFault("Error while validating card", faultValidate);
+            
+            // Console
+            System.out.println("Credit card fault");    // Indicate in the console there was a fault
+            String error = ex.getFaultInfo().getMessage();
+            System.out.println(error);  // Display the answer from the server
+            throw validateFault;
+        }
+    }
+
+    private boolean chargeCreditCard(int group, bank.ws.CreditCardInfoType creditCardInfo, int amount, bank.ws.AccountType account) throws CreditCardFaultMessage {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        bank.ws.BankPortType port = service.getBankPort();
+        return port.chargeCreditCard(group, creditCardInfo, amount, account);
+    }
+
+    private boolean refundCreditCard(int group, bank.ws.CreditCardInfoType creditCardInfo, int amount, bank.ws.AccountType account) throws CreditCardFaultMessage {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        bank.ws.BankPortType port = service.getBankPort();
+        return port.refundCreditCard(group, creditCardInfo, amount, account);
+    }
+
+    private boolean validateCreditCard(int group, bank.ws.CreditCardInfoType creditCardInfo, int amount) throws CreditCardFaultMessage {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        bank.ws.BankPortType port = service.getBankPort();
+        return port.validateCreditCard(group, creditCardInfo, amount);
+    }
+    
+}
