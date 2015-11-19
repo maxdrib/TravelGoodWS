@@ -29,7 +29,7 @@
     </target>
     <target name="wsimport-client-BankService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/BankService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/BankService" destdir="${build.generated.dir}/jax-wsCache/BankService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BankService/wsdl/fastmoney.imm.dtu.dk_8080/BankService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://fastmoney.imm.dtu.dk:8080/BankService?wsdl" xnocompile="true" xendorsed="true" package="hotels.ws">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/BankService" destdir="${build.generated.dir}/jax-wsCache/BankService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/BankService/wsdl/fastmoney.imm.dtu.dk_8080/BankService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://fastmoney.imm.dtu.dk:8080/BankService?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/BankService/wsdl/fastmoney.imm.dtu.dk_8080/BankService.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/BankService"/>
         </wsimport>
@@ -40,28 +40,28 @@
         </copy>
     </target>
     <target name="wsimport-client-clean-BankService" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/hotels/ws"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/dk/dtu/imm/fastmoney"/>
         <delete dir="${build.generated.dir}/jax-wsCache/BankService"/>
     </target>
-    <target name="wsimport-service-HotelServiceImplementation" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/HotelServiceImplementation"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/HotelServiceImplementation" destdir="${build.generated.dir}/jax-wsCache/service/HotelServiceImplementation" wsdl="${basedir}/${conf-dir}xml-resources/web-services/HotelServiceImplementation/wsdl/hotelsWSDLWrapper.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/HotelServiceImplementation/wsdl/hotelsWSDLWrapper.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/HotelServiceImplementation"/>
+    <target name="wsimport-service-HotelWebService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/HotelWebService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/HotelWebService" destdir="${build.generated.dir}/jax-wsCache/service/HotelWebService" wsdl="${basedir}/${conf-dir}xml-resources/web-services/HotelWebService/wsdl/hotelsWSDL.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/HotelWebService/wsdl/hotelsWSDL.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/HotelWebService"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/HotelServiceImplementation">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/HotelWebService">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/HotelServiceImplementation">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/HotelServiceImplementation/wsdl/"/>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/HotelWebService">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/HotelWebService/wsdl/"/>
         </copy>
     </target>
-    <target name="wsimport-service-clean-HotelServiceImplementation" depends="-init-project">
+    <target name="wsimport-service-clean-HotelWebService" depends="-init-project">
         <delete dir="${build.generated.sources.dir}/jax-ws/ws/hotels"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/HotelServiceImplementation"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/HotelWebService"/>
     </target>
     <target name="wsimport-client-generate" depends="wsimport-client-BankService"/>
-    <target name="wsimport-service-generate" depends="wsimport-service-HotelServiceImplementation"/>
+    <target name="wsimport-service-generate" depends="wsimport-service-HotelWebService"/>
 </project>

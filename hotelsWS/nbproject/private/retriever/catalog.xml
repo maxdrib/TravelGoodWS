@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://schemas.xmlsoap.org/wsdl/soap/" uri="schemas.xmlsoap.org/wsdl/soap/index.xsd"/>
+    <system systemId="file:/Users/ernestbofill/Documents/SDWS_Project/hotelsWS/src/java/hotels/ws/hotelsWSDL.wsdl" uri="hotelsWSDL.wsdl"/>
+    <system systemId="file:/Users/ernestbofill/Documents/SDWS_Project/hotelsWS/src/java/HotelSchema.xsd" uri="../../HotelSchema.xsd"/>
 </catalog>
