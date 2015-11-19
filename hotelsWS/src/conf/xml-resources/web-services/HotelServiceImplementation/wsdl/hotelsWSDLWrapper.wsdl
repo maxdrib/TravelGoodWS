@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://hotels.ws" xmlns:ns0="http://XMLSchema" xmlns:ns="http://types.fastmoney.imm.dtu.dk" name="hotelsWSDL" targetNamespace="http://hotels.ws">
+<wsdl:import namespace="http://hotels.ws" location="hotelsWSDL.wsdl"/>
+<wsdl:binding name="hotelsBinding" type="tns:hotelsPort">
+<soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="getHotels">
+<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="getHotels_action"/>
+<wsdl:input name="input1">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:input>
+<wsdl:output name="output1">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="bookHotel">
+<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="bookHotel_action"/>
+<wsdl:input name="input2">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:input>
+<wsdl:output name="output2">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:output>
+<wsdl:fault name="fault1">
+<soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="fault1" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="cancelHotel">
+<soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="cancelHotel_action"/>
+<wsdl:input name="input3">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:input>
+<wsdl:output name="output3">
+<soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal"/>
+</wsdl:output>
+<wsdl:fault name="fault1">
+<soap:fault xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="fault1" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="hotelsService">
+<wsdl:port name="hotelsPort" binding="tns:hotelsBinding">
+<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="REPLACE_WITH_ACTUAL_URL"/>
+</wsdl:port>
+</wsdl:service>
+</definitions>

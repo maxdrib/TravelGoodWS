@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="hotelsWS">
-      <implementation-class>hotels.ws.hotelsWS</implementation-class>
-      <wsdl-url>file:/C:/Users/xavi/Documents/NetBeansProjects/TravelGoodWS/hotelsWS/src/java/hotels/ws/hotelsWSDL.wsdl</wsdl-url>
-      <local-wsdl-file>hotelsWSDL.wsdl</local-wsdl-file>
-      <service-name>hotelsWSDLService</service-name>
-      <port-name>hotelsWSDLPort</port-name>
+    <service name="HotelServiceImplementation">
+      <implementation-class>hotels.ws.HotelServiceImplementation</implementation-class>
+      <wsdl-url>file:/Users/ernestbofill/Documents/SDWS_Project/hotelsWS/src/java/hotels/ws/hotelsWSDL.wsdl</wsdl-url>
+      <local-wsdl-file>hotelsWSDLWrapper.wsdl</local-wsdl-file>
+      <service-name>hotelsService</service-name>
+      <port-name>hotelsPort</port-name>
       <package-name>ws.hotels</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <use-provider>false</use-provider>
