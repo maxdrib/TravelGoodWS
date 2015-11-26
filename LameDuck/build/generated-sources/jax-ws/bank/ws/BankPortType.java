@@ -28,9 +28,9 @@ public interface BankPortType {
     /**
      * 
      * @param amount
-     * @param creditCardInfo
      * @param account
      * @param group
+     * @param creditCardInfo
      * @return
      *     returns boolean
      * @throws CreditCardFaultMessage
@@ -57,8 +57,8 @@ public interface BankPortType {
     /**
      * 
      * @param amount
-     * @param creditCardInfo
      * @param group
+     * @param creditCardInfo
      * @return
      *     returns boolean
      * @throws CreditCardFaultMessage
@@ -83,9 +83,9 @@ public interface BankPortType {
     /**
      * 
      * @param amount
-     * @param creditCardInfo
      * @param account
      * @param group
+     * @param creditCardInfo
      * @return
      *     returns boolean
      * @throws CreditCardFaultMessage

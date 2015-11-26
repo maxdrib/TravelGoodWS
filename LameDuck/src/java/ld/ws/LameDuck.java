@@ -146,7 +146,7 @@ public class LameDuck {
             validateFault = new GetBookingFault("Error while validating card", faultValidate);
             
             // Console
-            System.out.println("Credit card fault");    // Indicate in the console there was a fault
+            System.out.println("Credit card fault (Booking)");    // Indicate in the console there was a fault
             String error = ex.getFaultInfo().getMessage();
             System.out.println(error);  // Display the answer from the server
             throw validateFault;
@@ -193,7 +193,7 @@ public class LameDuck {
             refundFault = new GetCancelFault("Fault during refund!", faultRefund);
             
             // Console
-            System.out.println("Credit card fault");    // Indicate in the console there was a fault
+            System.out.println("Credit card fault (Cancel)");    // Indicate in the console there was a fault
             String error = ex.getFaultInfo().getMessage();
             System.out.println(error);  // Display the answer from the server
             throw refundFault;
