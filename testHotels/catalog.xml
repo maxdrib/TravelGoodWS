@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="file:/C:/Users/xavi/Documents/NetBeansProjects/TravelGoodWS/hotelsWS/src/java/hotels/ws/hotelsWSDL.wsdl" uri="xml-resources/web-service-references/hotelsWSDL/wsdl/hotelsWSDL.wsdl"/>
-    <system systemId="http://localhost:8080/hotelsWS/hotelsWSDLService?wsdl" uri="xml-resources/web-service-references/hotelsWSDLService/wsdl/localhost_8080/hotelsWS/hotelsWSDLService.wsdl"/>
+    <system systemId="file:/C:/cygwin64/home/Max/web_services/TravelGoodWS/hotelsWS/src/java/hotels/ws/hotelsWSDL.wsdl" uri="xml-resources/web-service-references/hotelsWSDL/wsdl/hotelsWSDL.wsdl"/>
+    <system systemId="file:/C:/cygwin64/home/Max/web_services/TravelGoodWS/hotelsWS/src/java/hotels/ws/HotelSchema.xsd" uri="xml-resources/web-service-references/hotelsWSDL/wsdl/HotelSchema.xsd"/>
+    <system systemId="http://fastmoney.imm.dtu.dk:8080/BankService?xsd=1" uri="xml-resources/web-service-references/hotelsWSDL/wsdl/fastmoney.imm.dtu.dk_8080/BankService.xsd_1.xsd"/>
+    <system systemId="http://laptopmax:8080/hotelsWS/hotelsWSDLService?wsdl" uri="xml-resources/web-service-references/hotelsWSDL/wsdl/laptopmax_8080/hotelsWS/hotelsWSDLService.wsdl"/>
+    <system systemId="http://laptopmax:8080/hotelsWS/hotelsWSDLService?xsd=2" uri="xml-resources/web-service-references/hotelsWSDL/wsdl/laptopmax_8080/hotelsWS/hotelsWSDLService.xsd_2.xsd"/>
+    <system systemId="http://laptopmax:8080/hotelsWS/hotelsWSDLService?null" uri="xml-resources/web-service-references/hotelsWSDL/wsdl/laptopmax_8080/hotelsWS/hotelsWSDLService.null.xml"/>
+    <system systemId="http://localhost:8080/hotelsWS/hotelsWSDLService?wsdl" uri="src/localhost_8080/hotelsWS/hotelsWSDLService.wsdl"/>
+    <system systemId="http://localhost:8080/hotelsWS/hotelsWSDLService?xsd=2" uri="src/localhost_8080/hotelsWS/hotelsWSDLService.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/hotelsWS/hotelsWSDLService?null" uri="src/localhost_8080/hotelsWS/hotelsWSDLService.null.xml"/>
 </catalog>

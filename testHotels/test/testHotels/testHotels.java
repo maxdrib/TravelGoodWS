@@ -6,15 +6,6 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import ws.hotels.BookHotelFault;
-import ws.hotels.BookHotelRequest;
-import ws.hotels.BookHotelResponse;
-import ws.hotels.CancelHotelFault;
-import ws.hotels.CancelHotelRequest;
-import ws.hotels.GetHotelsRequest;
-import ws.hotels.GetHotelsResponse;
-import ws.hotels.HotelListType;
-import ws.hotels.HotelType;
 
 /**
  *
@@ -217,23 +208,9 @@ public class testHotels {
         
     }
 
-    private static BookHotelResponse bookHotel(ws.hotels.BookHotelRequest bookHotelRequest) throws BookHotelFault {
-        ws.hotels.HotelsWSDLService service = new ws.hotels.HotelsWSDLService();
-        ws.hotels.HotelsWSDLPortType port = service.getHotelsWSDLPort();
-        return port.bookHotel(bookHotelRequest);
-    }
+    
 
-    private static void cancelHotel(ws.hotels.CancelHotelRequest cancelHotelRequest) throws CancelHotelFault {
-        ws.hotels.HotelsWSDLService service = new ws.hotels.HotelsWSDLService();
-        ws.hotels.HotelsWSDLPortType port = service.getHotelsWSDLPort();
-        port.cancelHotel(cancelHotelRequest);
-    }
 
-    private static GetHotelsResponse getHotels(ws.hotels.GetHotelsRequest getHotelsRequest) {
-        ws.hotels.HotelsWSDLService service = new ws.hotels.HotelsWSDLService();
-        ws.hotels.HotelsWSDLPortType port = service.getHotelsWSDLPort();
-        return port.getHotels(getHotelsRequest);
-    }
 
     
 }

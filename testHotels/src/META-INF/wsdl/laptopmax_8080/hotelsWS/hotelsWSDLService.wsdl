@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://hotels.ws" xmlns:ns0="http://XMLSchema" xmlns:ns="http://types.fastmoney.imm.dtu.dk" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="hotelsWSDL" targetNamespace="http://hotels.ws">
     <types>
         <xsd:schema xmlns:tns="http://hotels.ws" xmlns:ns1="hotelws.schema" targetNamespace="http://hotels.ws">
-            <xsd:import namespace="hotelws.schema" schemaLocation="http://localhost:8080/hotelsWS/hotelsWSDLService?xsd=2"/>
-            <xsd:import schemaLocation="http://localhost:8080/hotelsWS/hotelsWSDLService?null" namespace="http://types.fastmoney.imm.dtu.dk"/>
+            <xsd:import namespace="hotelws.schema" schemaLocation="http://laptopmax:8080/hotelsWS/hotelsWSDLService?xsd=2"/>
+            <xsd:import schemaLocation="http://laptopmax:8080/hotelsWS/hotelsWSDLService?null" namespace="http://types.fastmoney.imm.dtu.dk"/>
             <xsd:element name="hotelFault" type="xsd:string"/>
             <xsd:complexType name="getHotelsRequestType">
                 <xsd:sequence>
@@ -100,7 +100,7 @@
     </binding>
     <service name="hotelsWSDLService">
         <port name="hotelsPort" binding="tns:hotelsPortBinding">
-            <soap:address location="http://localhost:8080/hotelsWS/hotelsWSDLService"/>
+            <soap:address location="http://laptopmax:8080/hotelsWS/hotelsWSDLService"/>
         </port>
     </service>
 </definitions>
