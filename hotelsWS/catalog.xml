@@ -6,8 +6,11 @@
     <nextCatalog catalog="nbproject/private/retriever/catalog.xml"/>
     <system systemId="file:/Users/ernestbofill/Documents/SDWS_Project/hotelsWS/src/java/hotels/ws/hotelsWSDL.wsdl" uri="src/conf/xml-resources/web-services/HotelWebService/wsdl/hotelsWSDL.wsdl"/>
     <system systemId="file:/Users/ernestbofill/Documents/SDWS_Project/hotelsWS/src/java/HotelSchema.xsd" uri="src/conf/xml-resources/web-services/HotelSchema.xsd"/>
+    <system systemId="file:/C:/cygwin64/home/Max/web_services/TravelGoodWS/hotelsWS/src/java/hotels/ws/HotelSchema.xsd" uri="src/java/HotelSchema.xsd"/>
     <system systemId="http://fastmoney.imm.dtu.dk:8080/BankService?wsdl" uri="src/conf/xml-resources/web-service-references/BankService/wsdl/fastmoney.imm.dtu.dk_8080/BankService.wsdl"/>
     <system systemId="http://fastmoney.imm.dtu.dk:8080/BankService?wsdl=1" uri="src/conf/xml-resources/web-service-references/BankService/wsdl/fastmoney.imm.dtu.dk_8080/BankService.wsdl_1.wsdl"/>
-    <system systemId="http://fastmoney.imm.dtu.dk:8080/BankService?xsd=1" uri="src/conf/xml-resources/web-service-references/BankService/wsdl/fastmoney.imm.dtu.dk_8080/BankService.xsd_1.xsd"/>
     <system systemId="http://fastmoney.imm.dtu.dk:8080/BankService?xsd=2" uri="src/conf/xml-resources/web-service-references/BankService/wsdl/fastmoney.imm.dtu.dk_8080/BankService.xsd_2.xsd"/>
+    <system systemId="file:/C:/cygwin64/home/Max/web_services/Temp/hotels/TravelGoodWS/hotelsWS/src/java/hotels/ws/hotelsWSDL.wsdl" uri="src/conf/xml-resources/web-services/NewWebServiceFromWSDL/wsdl/hotelsWSDL.wsdl"/>
+    <system systemId="file:/C:/cygwin64/home/Max/web_services/Temp/hotels/TravelGoodWS/hotelsWS/src/java/hotels/ws/HotelSchema.xsd" uri="src/conf/xml-resources/web-services/NewWebServiceFromWSDL/wsdl/HotelSchema.xsd"/>
+    <system systemId="http://fastmoney.imm.dtu.dk:8080/BankService?xsd=1" uri="src/conf/xml-resources/web-services/NewWebServiceFromWSDL/wsdl/fastmoney.imm.dtu.dk_8080/BankService.xsd_1.xsd"/>
 </catalog>

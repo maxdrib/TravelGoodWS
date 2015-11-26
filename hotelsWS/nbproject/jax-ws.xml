@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="HotelWebService">
-      <implementation-class>hotels.ws.HotelWebService</implementation-class>
-      <wsdl-url>file:/Users/ernestbofill/Documents/SDWS_Project/hotelsWS/src/java/hotels/ws/hotelsWSDL.wsdl</wsdl-url>
+    <service name="NewWebServiceFromWSDL">
+      <implementation-class>hotels.ws.HotelService</implementation-class>
+      <wsdl-url>file:/C:/cygwin64/home/Max/web_services/Temp/hotels/TravelGoodWS/hotelsWS/src/java/hotels/ws/hotelsWSDL.wsdl</wsdl-url>
       <local-wsdl-file>hotelsWSDL.wsdl</local-wsdl-file>
       <service-name>hotelsWSDLService</service-name>
       <port-name>hotelsPort</port-name>

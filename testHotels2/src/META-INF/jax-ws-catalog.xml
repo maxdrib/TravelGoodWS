@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/cygwin64/home/Max/web_services/TravelGoodWS/testHotels2/src/localhost_8080/hotelsWS/hotelsWSDLService.wsdl" uri="wsdl/hotelsWSDLService.wsdl"/>
+    <system systemId="http://localhost:8080/hotelsWS/hotelsWSDLService?xsd=2" uri="wsdl/localhost_8080/hotelsWS/hotelsWSDLService.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/hotelsWS/hotelsWSDLService?xsd=1" uri="wsdl/localhost_8080/hotelsWS/hotelsWSDLService.xsd_1.xsd"/>
+</catalog>

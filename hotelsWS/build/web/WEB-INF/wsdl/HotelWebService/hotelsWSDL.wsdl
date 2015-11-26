@@ -5,7 +5,7 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://hotels.ws" xmlns:ns0="http://XMLSchema" xmlns:ns="http://types.fastmoney.imm.dtu.dk" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
     <types>
         <xsd:schema targetNamespace="http://hotels.ws" xmlns:tns="http://hotels.ws" xmlns:ns1="hotelws.schema">
-            <xsd:import namespace="hotelws.schema" schemaLocation="../../HotelSchema.xsd" />
+            <xsd:import namespace="hotelws.schema" schemaLocation="../../hotels/ws/HotelSchema.xsd" />
             <xsd:import schemaLocation="http://fastmoney.imm.dtu.dk:8080/BankService?xsd=1" namespace="http://types.fastmoney.imm.dtu.dk"/>
             <xsd:element name="hotelFault" type="xsd:string"></xsd:element>
             <xsd:complexType name="getHotelsRequestType">
