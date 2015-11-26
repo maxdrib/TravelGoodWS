@@ -44,6 +44,9 @@ public class tests {
         
     }
     
+    // In the web service implementation the price of the only flight is 
+    // 5000.1
+    
     @Test
     public void bookFlightTestFail() throws DatatypeConfigurationException {
         BookRequest request = new BookRequest();
@@ -51,11 +54,11 @@ public class tests {
         // Credit card info
         CreditCardInfoType cc = new CreditCardInfoType();
         CreditCardInfoType.ExpirationDate exp = new CreditCardInfoType.ExpirationDate();
-        exp.setMonth(9);
-        exp.setYear(10);
+        exp.setMonth(9);                // Valid Month
+        exp.setYear(10);                // Valid Year
         cc.setExpirationDate(exp);
-        cc.setName("Tobiasen Inge");
-        cc.setNumber("50408823");
+        cc.setName("Tobiasen Inge");    // Only 1000 in his account, it will fail
+        cc.setNumber("50408823");       // This is his valid CC
         request.setCreditCardInfo(cc);
         
         
@@ -82,7 +85,7 @@ public class tests {
         exp.setMonth(2);
         exp.setYear(11);
         cc.setExpirationDate(exp);
-        cc.setName("Tick Joachim");
+        cc.setName("Tick Joachim");     // He has 10000 more than enough to pay the 5000.1
         cc.setNumber("50408824");
         request.setCreditCardInfo(cc);
         
@@ -90,7 +93,7 @@ public class tests {
         try{
             boolean success = bookFlight(request);
             assertEquals(true, success);
-            System.out.println("Success!");
+            System.out.println("Successful booking!");
         }catch (GetBookingFault ex){
             //ex.printStackTrace();
             //System.out.println(ex.getFaultInfo().getCreditCard().getExpirationDate().getMonth());
@@ -101,7 +104,7 @@ public class tests {
     @Test
     public void cancelFlightTest() throws DatatypeConfigurationException {
         CancelRequest request = new CancelRequest();
-        request.setPrice(1000);
+        request.setPrice(1000); // How much is the flight worth? We will receive back only half of it
         request.setBookingNumber("1234");
         // Credit card info
         CreditCardInfoType cc = new CreditCardInfoType();

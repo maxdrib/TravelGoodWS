@@ -24,13 +24,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _ChargeCreditCard_QNAME = new QName("http://fastmoney.imm.dtu.dk", "chargeCreditCard");
+    private final static QName _CreditCardFault_QNAME = new QName("http://fastmoney.imm.dtu.dk", "CreditCardFault");
+    private final static QName _ValidateCreditCard_QNAME = new QName("http://fastmoney.imm.dtu.dk", "validateCreditCard");
     private final static QName _ChargeCreditCardResponse_QNAME = new QName("http://fastmoney.imm.dtu.dk", "chargeCreditCardResponse");
+    private final static QName _RefundCreditCard_QNAME = new QName("http://fastmoney.imm.dtu.dk", "refundCreditCard");
     private final static QName _RefundCreditCardResponse_QNAME = new QName("http://fastmoney.imm.dtu.dk", "refundCreditCardResponse");
     private final static QName _ValidateCreditCardResponse_QNAME = new QName("http://fastmoney.imm.dtu.dk", "validateCreditCardResponse");
-    private final static QName _RefundCreditCard_QNAME = new QName("http://fastmoney.imm.dtu.dk", "refundCreditCard");
-    private final static QName _ChargeCreditCard_QNAME = new QName("http://fastmoney.imm.dtu.dk", "chargeCreditCard");
-    private final static QName _ValidateCreditCard_QNAME = new QName("http://fastmoney.imm.dtu.dk", "validateCreditCard");
-    private final static QName _CreditCardFault_QNAME = new QName("http://fastmoney.imm.dtu.dk", "CreditCardFault");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: bank.ws
@@ -48,27 +48,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CreditCardFaultType }
+     * Create an instance of {@link ValidateCreditCardResponse }
      * 
      */
-    public CreditCardFaultType createCreditCardFaultType() {
-        return new CreditCardFaultType();
+    public ValidateCreditCardResponse createValidateCreditCardResponse() {
+        return new ValidateCreditCardResponse();
     }
 
     /**
-     * Create an instance of {@link ValidateCreditCard }
+     * Create an instance of {@link RefundCreditCardResponse }
      * 
      */
-    public ValidateCreditCard createValidateCreditCard() {
-        return new ValidateCreditCard();
-    }
-
-    /**
-     * Create an instance of {@link ChargeCreditCard }
-     * 
-     */
-    public ChargeCreditCard createChargeCreditCard() {
-        return new ChargeCreditCard();
+    public RefundCreditCardResponse createRefundCreditCardResponse() {
+        return new RefundCreditCardResponse();
     }
 
     /**
@@ -88,19 +80,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RefundCreditCardResponse }
+     * Create an instance of {@link ValidateCreditCard }
      * 
      */
-    public RefundCreditCardResponse createRefundCreditCardResponse() {
-        return new RefundCreditCardResponse();
+    public ValidateCreditCard createValidateCreditCard() {
+        return new ValidateCreditCard();
     }
 
     /**
-     * Create an instance of {@link ValidateCreditCardResponse }
+     * Create an instance of {@link CreditCardFaultType }
      * 
      */
-    public ValidateCreditCardResponse createValidateCreditCardResponse() {
-        return new ValidateCreditCardResponse();
+    public CreditCardFaultType createCreditCardFaultType() {
+        return new CreditCardFaultType();
+    }
+
+    /**
+     * Create an instance of {@link ChargeCreditCard }
+     * 
+     */
+    public ChargeCreditCard createChargeCreditCard() {
+        return new ChargeCreditCard();
     }
 
     /**
@@ -128,12 +128,48 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ChargeCreditCard }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "chargeCreditCard")
+    public JAXBElement<ChargeCreditCard> createChargeCreditCard(ChargeCreditCard value) {
+        return new JAXBElement<ChargeCreditCard>(_ChargeCreditCard_QNAME, ChargeCreditCard.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreditCardFaultType }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "CreditCardFault")
+    public JAXBElement<CreditCardFaultType> createCreditCardFault(CreditCardFaultType value) {
+        return new JAXBElement<CreditCardFaultType>(_CreditCardFault_QNAME, CreditCardFaultType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidateCreditCard }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "validateCreditCard")
+    public JAXBElement<ValidateCreditCard> createValidateCreditCard(ValidateCreditCard value) {
+        return new JAXBElement<ValidateCreditCard>(_ValidateCreditCard_QNAME, ValidateCreditCard.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ChargeCreditCardResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "chargeCreditCardResponse")
     public JAXBElement<ChargeCreditCardResponse> createChargeCreditCardResponse(ChargeCreditCardResponse value) {
         return new JAXBElement<ChargeCreditCardResponse>(_ChargeCreditCardResponse_QNAME, ChargeCreditCardResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RefundCreditCard }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "refundCreditCard")
+    public JAXBElement<RefundCreditCard> createRefundCreditCard(RefundCreditCard value) {
+        return new JAXBElement<RefundCreditCard>(_RefundCreditCard_QNAME, RefundCreditCard.class, null, value);
     }
 
     /**
@@ -152,42 +188,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "validateCreditCardResponse")
     public JAXBElement<ValidateCreditCardResponse> createValidateCreditCardResponse(ValidateCreditCardResponse value) {
         return new JAXBElement<ValidateCreditCardResponse>(_ValidateCreditCardResponse_QNAME, ValidateCreditCardResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RefundCreditCard }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "refundCreditCard")
-    public JAXBElement<RefundCreditCard> createRefundCreditCard(RefundCreditCard value) {
-        return new JAXBElement<RefundCreditCard>(_RefundCreditCard_QNAME, RefundCreditCard.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ChargeCreditCard }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "chargeCreditCard")
-    public JAXBElement<ChargeCreditCard> createChargeCreditCard(ChargeCreditCard value) {
-        return new JAXBElement<ChargeCreditCard>(_ChargeCreditCard_QNAME, ChargeCreditCard.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ValidateCreditCard }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "validateCreditCard")
-    public JAXBElement<ValidateCreditCard> createValidateCreditCard(ValidateCreditCard value) {
-        return new JAXBElement<ValidateCreditCard>(_ValidateCreditCard_QNAME, ValidateCreditCard.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CreditCardFaultType }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://fastmoney.imm.dtu.dk", name = "CreditCardFault")
-    public JAXBElement<CreditCardFaultType> createCreditCardFault(CreditCardFaultType value) {
-        return new JAXBElement<CreditCardFaultType>(_CreditCardFault_QNAME, CreditCardFaultType.class, null, value);
     }
 
 }

@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for refundCreditCard complex type.
+ * <p>Clase Java para refundCreditCard complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="refundCreditCard">
@@ -46,7 +46,7 @@ public class RefundCreditCard {
     protected AccountType account;
 
     /**
-     * Gets the value of the group property.
+     * Obtiene el valor de la propiedad group.
      * 
      */
     public int getGroup() {
@@ -54,7 +54,7 @@ public class RefundCreditCard {
     }
 
     /**
-     * Sets the value of the group property.
+     * Define el valor de la propiedad group.
      * 
      */
     public void setGroup(int value) {
@@ -62,7 +62,7 @@ public class RefundCreditCard {
     }
 
     /**
-     * Gets the value of the creditCardInfo property.
+     * Obtiene el valor de la propiedad creditCardInfo.
      * 
      * @return
      *     possible object is
@@ -74,7 +74,7 @@ public class RefundCreditCard {
     }
 
     /**
-     * Sets the value of the creditCardInfo property.
+     * Define el valor de la propiedad creditCardInfo.
      * 
      * @param value
      *     allowed object is
@@ -86,7 +86,7 @@ public class RefundCreditCard {
     }
 
     /**
-     * Gets the value of the amount property.
+     * Obtiene el valor de la propiedad amount.
      * 
      */
     public int getAmount() {
@@ -94,7 +94,7 @@ public class RefundCreditCard {
     }
 
     /**
-     * Sets the value of the amount property.
+     * Define el valor de la propiedad amount.
      * 
      */
     public void setAmount(int value) {
@@ -102,7 +102,7 @@ public class RefundCreditCard {
     }
 
     /**
-     * Gets the value of the account property.
+     * Obtiene el valor de la propiedad account.
      * 
      * @return
      *     possible object is
@@ -114,7 +114,7 @@ public class RefundCreditCard {
     }
 
     /**
-     * Sets the value of the account property.
+     * Define el valor de la propiedad account.
      * 
      * @param value
      *     allowed object is

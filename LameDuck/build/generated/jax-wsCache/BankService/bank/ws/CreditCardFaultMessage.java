@@ -23,8 +23,8 @@ public class CreditCardFaultMessage
 
     /**
      * 
-     * @param faultInfo
      * @param message
+     * @param faultInfo
      */
     public CreditCardFaultMessage(String message, CreditCardFaultType faultInfo) {
         super(message);
@@ -33,9 +33,9 @@ public class CreditCardFaultMessage
 
     /**
      * 
+     * @param message
      * @param faultInfo
      * @param cause
-     * @param message
      */
     public CreditCardFaultMessage(String message, CreditCardFaultType faultInfo, Throwable cause) {
         super(message, cause);
