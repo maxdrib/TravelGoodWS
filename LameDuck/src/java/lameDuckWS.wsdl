@@ -37,22 +37,13 @@
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:element name="cancelFault" type="tns:cancelFaultType"></xsd:element>
-            <xsd:complexType name="getFlightRequestType">
-		<xsd:sequence>
-			<xsd:element name="origin" type="xsd:string"></xsd:element>
-			<xsd:element name="destination" type="xsd:string"></xsd:element>
-			<xsd:element name="departureDate" type="xsd:date"></xsd:element>
-		</xsd:sequence>
-            </xsd:complexType>
-            <xsd:element name="getFlightRequest" type="tns:getFlightRequestType"></xsd:element>
-            <xsd:element name="getFlightsResponse" type="ns0:flightInformationList"></xsd:element>
         </xsd:schema>
     </types>
     <message name="lameDuckWSOperationRequest">
-        <part name="getFlightRequest" element="tns:getFlightRequest"/>
+        <part name="getFlightRequest" element="ns0:getFlighRequest"/>
     </message>
     <message name="lameDuckResponse">
-        <part name="getFlightResponse" element="tns:getFlightsResponse"/>
+        <part name="getFlightResponse" element="ns0:getFlightsResponse"/>
     </message>
     <message name="lameDuckBookFlightRequest">
         <part name="getBookRequest" element="tns:getBookRequest"/>

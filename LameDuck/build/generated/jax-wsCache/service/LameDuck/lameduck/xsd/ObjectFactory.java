@@ -24,8 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetFlightsResponse_QNAME = new QName("http://lameDuck/xsd.ws", "getFlightsResponse");
     private final static QName _GetFlighRequest_QNAME = new QName("http://lameDuck/xsd.ws", "getFlighRequest");
+    private final static QName _GetFlightsResponse_QNAME = new QName("http://lameDuck/xsd.ws", "getFlightsResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: lameduck.xsd
@@ -51,14 +51,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Flight }
-     * 
-     */
-    public Flight createFlight() {
-        return new Flight();
-    }
-
-    /**
      * Create an instance of {@link FligthInformation }
      * 
      */
@@ -67,12 +59,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FlightInformationList }{@code >}}
+     * Create an instance of {@link Flight }
      * 
      */
-    @XmlElementDecl(namespace = "http://lameDuck/xsd.ws", name = "getFlightsResponse")
-    public JAXBElement<FlightInformationList> createGetFlightsResponse(FlightInformationList value) {
-        return new JAXBElement<FlightInformationList>(_GetFlightsResponse_QNAME, FlightInformationList.class, null, value);
+    public Flight createFlight() {
+        return new Flight();
     }
 
     /**
@@ -82,6 +73,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://lameDuck/xsd.ws", name = "getFlighRequest")
     public JAXBElement<Request> createGetFlighRequest(Request value) {
         return new JAXBElement<Request>(_GetFlighRequest_QNAME, Request.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FlightInformationList }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://lameDuck/xsd.ws", name = "getFlightsResponse")
+    public JAXBElement<FlightInformationList> createGetFlightsResponse(FlightInformationList value) {
+        return new JAXBElement<FlightInformationList>(_GetFlightsResponse_QNAME, FlightInformationList.class, null, value);
     }
 
 }

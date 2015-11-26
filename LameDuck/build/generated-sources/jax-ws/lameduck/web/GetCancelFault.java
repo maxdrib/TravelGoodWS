@@ -23,8 +23,8 @@ public class GetCancelFault
 
     /**
      * 
-     * @param faultInfo
      * @param message
+     * @param faultInfo
      */
     public GetCancelFault(String message, CancelFaultType faultInfo) {
         super(message);
@@ -33,9 +33,9 @@ public class GetCancelFault
 
     /**
      * 
+     * @param message
      * @param faultInfo
      * @param cause
-     * @param message
      */
     public GetCancelFault(String message, CancelFaultType faultInfo, Throwable cause) {
         super(message, cause);

@@ -9,9 +9,9 @@ import dk.dtu.imm.fastmoney.types.CreditCardInfoType;
 
 
 /**
- * <p>Java class for bookHotelRequestType complex type.
+ * <p>Clase Java para bookHotelRequestType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="bookHotelRequestType">
@@ -40,7 +40,7 @@ public class BookHotelRequestType {
     protected CreditCardInfoType creditcardInformation;
 
     /**
-     * Gets the value of the bookingNumber property.
+     * Obtiene el valor de la propiedad bookingNumber.
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class BookHotelRequestType {
     }
 
     /**
-     * Sets the value of the bookingNumber property.
+     * Define el valor de la propiedad bookingNumber.
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class BookHotelRequestType {
     }
 
     /**
-     * Gets the value of the creditcardInformation property.
+     * Obtiene el valor de la propiedad creditcardInformation.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class BookHotelRequestType {
     }
 
     /**
-     * Sets the value of the creditcardInformation property.
+     * Define el valor de la propiedad creditcardInformation.
      * 
      * @param value
      *     allowed object is

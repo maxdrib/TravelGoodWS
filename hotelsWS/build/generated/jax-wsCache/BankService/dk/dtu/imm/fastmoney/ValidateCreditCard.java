@@ -9,9 +9,9 @@ import dk.dtu.imm.fastmoney.types.CreditCardInfoType;
 
 
 /**
- * <p>Java class for validateCreditCard complex type.
+ * <p>Clase Java para validateCreditCard complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="validateCreditCard">
@@ -43,7 +43,7 @@ public class ValidateCreditCard {
     protected int amount;
 
     /**
-     * Gets the value of the group property.
+     * Obtiene el valor de la propiedad group.
      * 
      */
     public int getGroup() {
@@ -51,7 +51,7 @@ public class ValidateCreditCard {
     }
 
     /**
-     * Sets the value of the group property.
+     * Define el valor de la propiedad group.
      * 
      */
     public void setGroup(int value) {
@@ -59,7 +59,7 @@ public class ValidateCreditCard {
     }
 
     /**
-     * Gets the value of the creditCardInfo property.
+     * Obtiene el valor de la propiedad creditCardInfo.
      * 
      * @return
      *     possible object is
@@ -71,7 +71,7 @@ public class ValidateCreditCard {
     }
 
     /**
-     * Sets the value of the creditCardInfo property.
+     * Define el valor de la propiedad creditCardInfo.
      * 
      * @param value
      *     allowed object is
@@ -83,7 +83,7 @@ public class ValidateCreditCard {
     }
 
     /**
-     * Gets the value of the amount property.
+     * Obtiene el valor de la propiedad amount.
      * 
      */
     public int getAmount() {
@@ -91,7 +91,7 @@ public class ValidateCreditCard {
     }
 
     /**
-     * Sets the value of the amount property.
+     * Define el valor de la propiedad amount.
      * 
      */
     public void setAmount(int value) {

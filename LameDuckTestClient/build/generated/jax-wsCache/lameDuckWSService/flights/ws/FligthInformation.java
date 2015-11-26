@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for fligthInformation complex type.
+ * <p>Clase Java para fligthInformation complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="fligthInformation">
@@ -48,7 +48,7 @@ public class FligthInformation {
     protected String airlineReservationService;
 
     /**
-     * Gets the value of the flight property.
+     * Obtiene el valor de la propiedad flight.
      * 
      * @return
      *     possible object is
@@ -60,7 +60,7 @@ public class FligthInformation {
     }
 
     /**
-     * Sets the value of the flight property.
+     * Define el valor de la propiedad flight.
      * 
      * @param value
      *     allowed object is
@@ -72,7 +72,7 @@ public class FligthInformation {
     }
 
     /**
-     * Gets the value of the bookingNumber property.
+     * Obtiene el valor de la propiedad bookingNumber.
      * 
      * @return
      *     possible object is
@@ -84,7 +84,7 @@ public class FligthInformation {
     }
 
     /**
-     * Sets the value of the bookingNumber property.
+     * Define el valor de la propiedad bookingNumber.
      * 
      * @param value
      *     allowed object is
@@ -96,7 +96,7 @@ public class FligthInformation {
     }
 
     /**
-     * Gets the value of the price property.
+     * Obtiene el valor de la propiedad price.
      * 
      */
     public float getPrice() {
@@ -104,7 +104,7 @@ public class FligthInformation {
     }
 
     /**
-     * Sets the value of the price property.
+     * Define el valor de la propiedad price.
      * 
      */
     public void setPrice(float value) {
@@ -112,7 +112,7 @@ public class FligthInformation {
     }
 
     /**
-     * Gets the value of the airlineReservationService property.
+     * Obtiene el valor de la propiedad airlineReservationService.
      * 
      * @return
      *     possible object is
@@ -124,7 +124,7 @@ public class FligthInformation {
     }
 
     /**
-     * Sets the value of the airlineReservationService property.
+     * Define el valor de la propiedad airlineReservationService.
      * 
      * @param value
      *     allowed object is

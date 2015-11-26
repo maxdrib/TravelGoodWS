@@ -73,11 +73,9 @@ public class TestHotels {
         // Iterate through hotel list to see if hotels match request critera
         for (HotelType curr_hotel : list_of_hotels) {
             String city = curr_hotel.getAddress().split(",")[1];
-            
             // Check to see if all matches really have an address in Lyngby
             assertEquals(city, "Barcelona");
         }
-        
         // Check correct size of hotel list, should be two
         assertEquals( 0, list_of_hotels.size());
     }
@@ -101,7 +99,6 @@ public class TestHotels {
         // RESET
         String reset_booking_num = "3";
         cancelHotel(reset_booking_num);
-        
     }
     
     @Test
@@ -125,13 +122,6 @@ public class TestHotels {
             thrown = true;
         }
         assertEquals(thrown, true);
-                
-        System.out.println("Fake CC. Is hotelList empty? ");
-        GetHotelsRequestType hotel5 = new GetHotelsRequestType();
-        hotel5.setCity("Paris");
-        HotelListType hotelList = getHotels(hotel5);
-        List<HotelType> list_of_hotels = hotelList.getHotel();
-        System.out.println(list_of_hotels.isEmpty());
     }
 
     @Test
@@ -155,14 +145,6 @@ public class TestHotels {
             thrown = true;
         }
         assertEquals(thrown, true);
-        
-                
-        System.out.println("Incorrect CC. Is hotel booked? ");
-        GetHotelsRequestType hotel5 = new GetHotelsRequestType();
-        hotel5.setCity("Paris");
-        HotelListType hotelList = getHotels(hotel5);
-        List<HotelType> list_of_hotels = hotelList.getHotel();
-        System.out.println(list_of_hotels.isEmpty());
     }
     
     @Test
@@ -187,19 +169,11 @@ public class TestHotels {
             thrown = true;
         }
         assertEquals(thrown, true);
-        
-        
-        System.out.println("CC Limit Reached. Is hotel booked? ");
-        GetHotelsRequestType hotel5 = new GetHotelsRequestType();
-        hotel5.setCity("Paris");
-        HotelListType hotelList = getHotels(hotel5);
-        List<HotelType> list_of_hotels = hotelList.getHotel();
-        System.out.println(list_of_hotels.isEmpty());
     }
     
     @Test
     /* Books a hotel, passes if the response is true */
-    public void testHotelBookingSuccess() throws BookHotelFault {
+    public void testHotelBookingSuccess() throws BookHotelFault, CancelHotelFault {
         BookHotelRequestType request = new BookHotelRequestType();
         CreditCardInfoType cc = new CreditCardInfoType();
         ExpirationDate exp_date = new ExpirationDate();
@@ -215,29 +189,16 @@ public class TestHotels {
         // Successfully booked hotel
         assertEquals(resp, true);
         
-                
-        System.out.println("bookingSuccess. Is hotel5 booked? ");
-        GetHotelsRequestType hotel5 = new GetHotelsRequestType();
-        hotel5.setCity("Paris");
-        HotelListType hotelList = getHotels(hotel5);
-        List<HotelType> list_of_hotels = hotelList.getHotel();
-        System.out.println(list_of_hotels.isEmpty());
-        
-    }    
-    
-    @Test
-    /* Attempts to book same hotel as previous test, should fail */
-    public void testHotelBookingFailure() throws BookHotelFault, CancelHotelFault {        
-        // Try booking again, should fail
+        /* Attempts to book same hotel as previous test, should fail */
         BookHotelRequestType request2 = new BookHotelRequestType();
-        CreditCardInfoType cc = new CreditCardInfoType();
-        ExpirationDate exp_date = new ExpirationDate();
+        CreditCardInfoType cc2 = new CreditCardInfoType();
+        ExpirationDate exp_date2 = new ExpirationDate();
         exp_date.setMonth(5);
         exp_date.setYear(9);
-        cc.setExpirationDate(exp_date);
+        cc.setExpirationDate(exp_date2);
         cc.setNumber("50408825");
         cc.setName("Thor-Jensen Claus");
-        request2.setCreditcardInformation(cc);
+        request2.setCreditcardInformation(cc2);
         request2.setBookingNumber("5");
         boolean thrown = false;
         try {
@@ -254,7 +215,43 @@ public class TestHotels {
         cancelHotel(request3);
     }
     
+    @Test
+    /* Cancels a booked hotel, then re-books it */
+    public void testCancelBookingSuccess() throws CancelHotelFault, BookHotelFault {
+        // Cancel booked hotel
+        String request = "4";
+        cancelHotel(request);
+        
+        // Rebook the same hotel
+        BookHotelRequestType request2 = new BookHotelRequestType();
+        request2.setBookingNumber("5");
+        CreditCardInfoType cc = new CreditCardInfoType();
+        ExpirationDate exp_date = new ExpirationDate();
+        exp_date.setMonth(5);
+        exp_date.setYear(9);
+        cc.setExpirationDate(exp_date);
+        cc.setNumber("50408825");
+        cc.setName("Thor-Jensen Claus");
+        request2.setCreditcardInformation(cc);
+        boolean resp = bookHotel(request2);
+        assertEquals(resp, true);
+    }  
     
+    @Test
+    /* Cancels a booked hotel*/
+    public void testCancelBookingFailure() throws CancelHotelFault {
+        // Cancel booked hotel
+        String request = "1";
+        boolean thrown = false;
+        try  {
+            cancelHotel(request);
+        }
+        catch (CancelHotelFault e) {
+            thrown = true;
+        }
+        assertEquals(thrown, true);         
+    }
+
     private static boolean bookHotel(test.BookHotelRequestType bookHotelRequest) throws BookHotelFault {
         test.HotelsWSDLService service = new test.HotelsWSDLService();
         test.HotelsPort port = service.getHotelsPort();

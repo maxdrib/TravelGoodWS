@@ -25,4 +25,13 @@
 			<xsd:element name="flightInformation" type="tns:fligthInformation" maxOccurs="unbounded" minOccurs="0"></xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
+	<xsd:element name="getFlightsResponse" type="tns:flightInformationList"></xsd:element>
+	<xsd:complexType name="request">
+		<xsd:sequence>
+			<xsd:element name="origin" type="xsd:string"></xsd:element>
+			<xsd:element name="destination" type="xsd:string"></xsd:element>
+			<xsd:element name="departureDate" type="xsd:date"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="getFlighRequest" type="tns:request"></xsd:element>
 </xsd:schema>

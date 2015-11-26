@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for hotelType complex type.
+ * <p>Clase Java para hotelType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="hotelType">
@@ -54,7 +54,7 @@ public class HotelType {
     protected int totalPrice;
 
     /**
-     * Gets the value of the name property.
+     * Obtiene el valor de la propiedad name.
      * 
      * @return
      *     possible object is
@@ -66,7 +66,7 @@ public class HotelType {
     }
 
     /**
-     * Sets the value of the name property.
+     * Define el valor de la propiedad name.
      * 
      * @param value
      *     allowed object is
@@ -78,7 +78,7 @@ public class HotelType {
     }
 
     /**
-     * Gets the value of the address property.
+     * Obtiene el valor de la propiedad address.
      * 
      * @return
      *     possible object is
@@ -90,7 +90,7 @@ public class HotelType {
     }
 
     /**
-     * Sets the value of the address property.
+     * Define el valor de la propiedad address.
      * 
      * @param value
      *     allowed object is
@@ -102,7 +102,7 @@ public class HotelType {
     }
 
     /**
-     * Gets the value of the bookingNumber property.
+     * Obtiene el valor de la propiedad bookingNumber.
      * 
      * @return
      *     possible object is
@@ -114,7 +114,7 @@ public class HotelType {
     }
 
     /**
-     * Sets the value of the bookingNumber property.
+     * Define el valor de la propiedad bookingNumber.
      * 
      * @param value
      *     allowed object is
@@ -126,7 +126,7 @@ public class HotelType {
     }
 
     /**
-     * Gets the value of the creditcardGuarantee property.
+     * Obtiene el valor de la propiedad creditcardGuarantee.
      * 
      */
     public boolean isCreditcardGuarantee() {
@@ -134,7 +134,7 @@ public class HotelType {
     }
 
     /**
-     * Sets the value of the creditcardGuarantee property.
+     * Define el valor de la propiedad creditcardGuarantee.
      * 
      */
     public void setCreditcardGuarantee(boolean value) {
@@ -142,7 +142,7 @@ public class HotelType {
     }
 
     /**
-     * Gets the value of the serviceName property.
+     * Obtiene el valor de la propiedad serviceName.
      * 
      * @return
      *     possible object is
@@ -154,7 +154,7 @@ public class HotelType {
     }
 
     /**
-     * Sets the value of the serviceName property.
+     * Define el valor de la propiedad serviceName.
      * 
      * @param value
      *     allowed object is
@@ -166,7 +166,7 @@ public class HotelType {
     }
 
     /**
-     * Gets the value of the totalPrice property.
+     * Obtiene el valor de la propiedad totalPrice.
      * 
      */
     public int getTotalPrice() {
@@ -174,7 +174,7 @@ public class HotelType {
     }
 
     /**
-     * Sets the value of the totalPrice property.
+     * Define el valor de la propiedad totalPrice.
      * 
      */
     public void setTotalPrice(int value) {

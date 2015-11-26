@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for bookRequest complex type.
+ * <p>Clase Java para bookRequest complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="bookRequest">
@@ -40,7 +40,7 @@ public class BookRequest {
     protected String bookingNumber;
 
     /**
-     * Gets the value of the creditCardInfo property.
+     * Obtiene el valor de la propiedad creditCardInfo.
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class BookRequest {
     }
 
     /**
-     * Sets the value of the creditCardInfo property.
+     * Define el valor de la propiedad creditCardInfo.
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class BookRequest {
     }
 
     /**
-     * Gets the value of the bookingNumber property.
+     * Obtiene el valor de la propiedad bookingNumber.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class BookRequest {
     }
 
     /**
-     * Sets the value of the bookingNumber property.
+     * Define el valor de la propiedad bookingNumber.
      * 
      * @param value
      *     allowed object is

@@ -10,9 +10,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for flight complex type.
+ * <p>Clase Java para flight complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="flight">
@@ -56,7 +56,7 @@ public class Flight {
     protected String carrier;
 
     /**
-     * Gets the value of the origin property.
+     * Obtiene el valor de la propiedad origin.
      * 
      * @return
      *     possible object is
@@ -68,7 +68,7 @@ public class Flight {
     }
 
     /**
-     * Sets the value of the origin property.
+     * Define el valor de la propiedad origin.
      * 
      * @param value
      *     allowed object is
@@ -80,7 +80,7 @@ public class Flight {
     }
 
     /**
-     * Gets the value of the destination property.
+     * Obtiene el valor de la propiedad destination.
      * 
      * @return
      *     possible object is
@@ -92,7 +92,7 @@ public class Flight {
     }
 
     /**
-     * Sets the value of the destination property.
+     * Define el valor de la propiedad destination.
      * 
      * @param value
      *     allowed object is
@@ -104,7 +104,7 @@ public class Flight {
     }
 
     /**
-     * Gets the value of the departureDateTime property.
+     * Obtiene el valor de la propiedad departureDateTime.
      * 
      * @return
      *     possible object is
@@ -116,7 +116,7 @@ public class Flight {
     }
 
     /**
-     * Sets the value of the departureDateTime property.
+     * Define el valor de la propiedad departureDateTime.
      * 
      * @param value
      *     allowed object is
@@ -128,7 +128,7 @@ public class Flight {
     }
 
     /**
-     * Gets the value of the arrivalDateTime property.
+     * Obtiene el valor de la propiedad arrivalDateTime.
      * 
      * @return
      *     possible object is
@@ -140,7 +140,7 @@ public class Flight {
     }
 
     /**
-     * Sets the value of the arrivalDateTime property.
+     * Define el valor de la propiedad arrivalDateTime.
      * 
      * @param value
      *     allowed object is
@@ -152,7 +152,7 @@ public class Flight {
     }
 
     /**
-     * Gets the value of the carrier property.
+     * Obtiene el valor de la propiedad carrier.
      * 
      * @return
      *     possible object is
@@ -164,7 +164,7 @@ public class Flight {
     }
 
     /**
-     * Sets the value of the carrier property.
+     * Define el valor de la propiedad carrier.
      * 
      * @param value
      *     allowed object is

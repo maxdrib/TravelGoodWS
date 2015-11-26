@@ -10,9 +10,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for request complex type.
+ * <p>Clase Java para request complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="request">
@@ -47,7 +47,7 @@ public class Request {
     protected XMLGregorianCalendar departureDate;
 
     /**
-     * Gets the value of the origin property.
+     * Obtiene el valor de la propiedad origin.
      * 
      * @return
      *     possible object is
@@ -59,7 +59,7 @@ public class Request {
     }
 
     /**
-     * Sets the value of the origin property.
+     * Define el valor de la propiedad origin.
      * 
      * @param value
      *     allowed object is
@@ -71,7 +71,7 @@ public class Request {
     }
 
     /**
-     * Gets the value of the destination property.
+     * Obtiene el valor de la propiedad destination.
      * 
      * @return
      *     possible object is
@@ -83,7 +83,7 @@ public class Request {
     }
 
     /**
-     * Sets the value of the destination property.
+     * Define el valor de la propiedad destination.
      * 
      * @param value
      *     allowed object is
@@ -95,7 +95,7 @@ public class Request {
     }
 
     /**
-     * Gets the value of the departureDate property.
+     * Obtiene el valor de la propiedad departureDate.
      * 
      * @return
      *     possible object is
@@ -107,7 +107,7 @@ public class Request {
     }
 
     /**
-     * Sets the value of the departureDate property.
+     * Define el valor de la propiedad departureDate.
      * 
      * @param value
      *     allowed object is

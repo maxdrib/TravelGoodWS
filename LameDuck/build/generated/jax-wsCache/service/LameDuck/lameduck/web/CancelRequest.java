@@ -9,9 +9,9 @@ import dk.dtu.imm.fastmoney.types.CreditCardInfoType;
 
 
 /**
- * <p>Java class for cancelRequest complex type.
+ * <p>Clase Java para cancelRequest complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="cancelRequest">
@@ -44,7 +44,7 @@ public class CancelRequest {
     protected CreditCardInfoType creditCardInfo;
 
     /**
-     * Gets the value of the bookingNumber property.
+     * Obtiene el valor de la propiedad bookingNumber.
      * 
      * @return
      *     possible object is
@@ -56,7 +56,7 @@ public class CancelRequest {
     }
 
     /**
-     * Sets the value of the bookingNumber property.
+     * Define el valor de la propiedad bookingNumber.
      * 
      * @param value
      *     allowed object is
@@ -68,7 +68,7 @@ public class CancelRequest {
     }
 
     /**
-     * Gets the value of the price property.
+     * Obtiene el valor de la propiedad price.
      * 
      */
     public int getPrice() {
@@ -76,7 +76,7 @@ public class CancelRequest {
     }
 
     /**
-     * Sets the value of the price property.
+     * Define el valor de la propiedad price.
      * 
      */
     public void setPrice(int value) {
@@ -84,7 +84,7 @@ public class CancelRequest {
     }
 
     /**
-     * Gets the value of the creditCardInfo property.
+     * Obtiene el valor de la propiedad creditCardInfo.
      * 
      * @return
      *     possible object is
@@ -96,7 +96,7 @@ public class CancelRequest {
     }
 
     /**
-     * Sets the value of the creditCardInfo property.
+     * Define el valor de la propiedad creditCardInfo.
      * 
      * @param value
      *     allowed object is

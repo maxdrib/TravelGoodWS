@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for accountType complex type.
+ * <p>Clase Java para accountType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="accountType">
@@ -40,7 +40,7 @@ public class AccountType {
     protected String number;
 
     /**
-     * Gets the value of the name property.
+     * Obtiene el valor de la propiedad name.
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class AccountType {
     }
 
     /**
-     * Sets the value of the name property.
+     * Define el valor de la propiedad name.
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class AccountType {
     }
 
     /**
-     * Gets the value of the number property.
+     * Obtiene el valor de la propiedad number.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class AccountType {
     }
 
     /**
-     * Sets the value of the number property.
+     * Define el valor de la propiedad number.
      * 
      * @param value
      *     allowed object is

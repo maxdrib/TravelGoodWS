@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for creditCardInfoType complex type.
+ * <p>Clase Java para creditCardInfoType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="creditCardInfoType">
@@ -55,7 +55,7 @@ public class CreditCardInfoType {
     protected String number;
 
     /**
-     * Gets the value of the expirationDate property.
+     * Obtiene el valor de la propiedad expirationDate.
      * 
      * @return
      *     possible object is
@@ -67,7 +67,7 @@ public class CreditCardInfoType {
     }
 
     /**
-     * Sets the value of the expirationDate property.
+     * Define el valor de la propiedad expirationDate.
      * 
      * @param value
      *     allowed object is
@@ -79,7 +79,7 @@ public class CreditCardInfoType {
     }
 
     /**
-     * Gets the value of the name property.
+     * Obtiene el valor de la propiedad name.
      * 
      * @return
      *     possible object is
@@ -91,7 +91,7 @@ public class CreditCardInfoType {
     }
 
     /**
-     * Sets the value of the name property.
+     * Define el valor de la propiedad name.
      * 
      * @param value
      *     allowed object is
@@ -103,7 +103,7 @@ public class CreditCardInfoType {
     }
 
     /**
-     * Gets the value of the number property.
+     * Obtiene el valor de la propiedad number.
      * 
      * @return
      *     possible object is
@@ -115,7 +115,7 @@ public class CreditCardInfoType {
     }
 
     /**
-     * Sets the value of the number property.
+     * Define el valor de la propiedad number.
      * 
      * @param value
      *     allowed object is
@@ -128,9 +128,9 @@ public class CreditCardInfoType {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Clase Java para anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
      * 
      * <pre>
      * &lt;complexType>
@@ -158,7 +158,7 @@ public class CreditCardInfoType {
         protected int year;
 
         /**
-         * Gets the value of the month property.
+         * Obtiene el valor de la propiedad month.
          * 
          */
         public int getMonth() {
@@ -166,7 +166,7 @@ public class CreditCardInfoType {
         }
 
         /**
-         * Sets the value of the month property.
+         * Define el valor de la propiedad month.
          * 
          */
         public void setMonth(int value) {
@@ -174,7 +174,7 @@ public class CreditCardInfoType {
         }
 
         /**
-         * Gets the value of the year property.
+         * Obtiene el valor de la propiedad year.
          * 
          */
         public int getYear() {
@@ -182,7 +182,7 @@ public class CreditCardInfoType {
         }
 
         /**
-         * Sets the value of the year property.
+         * Define el valor de la propiedad year.
          * 
          */
         public void setYear(int value) {

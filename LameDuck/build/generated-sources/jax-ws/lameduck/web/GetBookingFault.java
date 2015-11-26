@@ -23,8 +23,8 @@ public class GetBookingFault
 
     /**
      * 
-     * @param faultInfo
      * @param message
+     * @param faultInfo
      */
     public GetBookingFault(String message, BookFaultType faultInfo) {
         super(message);
@@ -33,9 +33,9 @@ public class GetBookingFault
 
     /**
      * 
+     * @param message
      * @param faultInfo
      * @param cause
-     * @param message
      */
     public GetBookingFault(String message, BookFaultType faultInfo, Throwable cause) {
         super(message, cause);

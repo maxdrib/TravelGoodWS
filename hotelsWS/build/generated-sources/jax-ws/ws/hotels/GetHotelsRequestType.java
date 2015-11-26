@@ -10,9 +10,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for getHotelsRequestType complex type.
+ * <p>Clase Java para getHotelsRequestType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="getHotelsRequestType">
@@ -48,7 +48,7 @@ public class GetHotelsRequestType {
     protected XMLGregorianCalendar departureDate;
 
     /**
-     * Gets the value of the city property.
+     * Obtiene el valor de la propiedad city.
      * 
      * @return
      *     possible object is
@@ -60,7 +60,7 @@ public class GetHotelsRequestType {
     }
 
     /**
-     * Sets the value of the city property.
+     * Define el valor de la propiedad city.
      * 
      * @param value
      *     allowed object is
@@ -72,7 +72,7 @@ public class GetHotelsRequestType {
     }
 
     /**
-     * Gets the value of the arrivalDate property.
+     * Obtiene el valor de la propiedad arrivalDate.
      * 
      * @return
      *     possible object is
@@ -84,7 +84,7 @@ public class GetHotelsRequestType {
     }
 
     /**
-     * Sets the value of the arrivalDate property.
+     * Define el valor de la propiedad arrivalDate.
      * 
      * @param value
      *     allowed object is
@@ -96,7 +96,7 @@ public class GetHotelsRequestType {
     }
 
     /**
-     * Gets the value of the departureDate property.
+     * Obtiene el valor de la propiedad departureDate.
      * 
      * @return
      *     possible object is
@@ -108,7 +108,7 @@ public class GetHotelsRequestType {
     }
 
     /**
-     * Sets the value of the departureDate property.
+     * Define el valor de la propiedad departureDate.
      * 
      * @param value
      *     allowed object is

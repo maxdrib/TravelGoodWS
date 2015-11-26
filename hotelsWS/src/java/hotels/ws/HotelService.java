@@ -103,12 +103,11 @@ public class HotelService {
         
         for (int i = 0; i < unbooked_hotels.size(); ++i) {
             HotelType curr_hotel = unbooked_hotels.get(i);
-            
             // Set matching hotel's price to above 25
             // to make it unavailable
             if(curr_hotel.getBookingNumber().equals(bookingNum)) {
                 //curr_hotel.setTotalPrice(30.0f);
-                System.out.print("Booked hotel ");
+                System.out.print("Booked hotel");
                 System.out.println(curr_hotel.getName());
                 if (curr_hotel.isCreditcardGuarantee()) {
                     dk.dtu.imm.fastmoney.types.CreditCardInfoType creditcard = bookHotelRequest.getCreditcardInformation();
@@ -152,7 +151,6 @@ public class HotelService {
         String bookingNum = bookingNumber;
         for (int i = 0; i < booked_hotels.size(); ++i) {
             HotelType curr_hotel = booked_hotels.get(i);
-            
             // Set matching hotel's price to above 25
             // to make it unavailable
             if(curr_hotel.getBookingNumber().equals(bookingNum)) {

@@ -9,9 +9,9 @@ import dk.dtu.imm.fastmoney.types.CreditCardInfoType;
 
 
 /**
- * <p>Java class for bookFaultType complex type.
+ * <p>Clase Java para bookFaultType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="bookFaultType">
@@ -41,7 +41,7 @@ public class BookFaultType {
     protected CreditCardInfoType creditCard;
 
     /**
-     * Gets the value of the errorMessage property.
+     * Obtiene el valor de la propiedad errorMessage.
      * 
      * @return
      *     possible object is
@@ -53,7 +53,7 @@ public class BookFaultType {
     }
 
     /**
-     * Sets the value of the errorMessage property.
+     * Define el valor de la propiedad errorMessage.
      * 
      * @param value
      *     allowed object is
@@ -65,7 +65,7 @@ public class BookFaultType {
     }
 
     /**
-     * Gets the value of the creditCard property.
+     * Obtiene el valor de la propiedad creditCard.
      * 
      * @return
      *     possible object is
@@ -77,7 +77,7 @@ public class BookFaultType {
     }
 
     /**
-     * Sets the value of the creditCard property.
+     * Define el valor de la propiedad creditCard.
      * 
      * @param value
      *     allowed object is
